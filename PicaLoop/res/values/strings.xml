@@ -4,8 +4,8 @@
     <string name="app_name">PicaLoop</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="fbLogin_button">Register with Facebook</string>
-    <string name="gmailLogin_button">Register with Google</string>
-    <string name="pclLogin_button">Register using email</string>
+    <string name="fbLogin_button">Sign up with Facebook</string>
+    <string name="gmailLogin_button">Sign up with Google</string>
+    <string name="pclLogin_button">Sign up using email</string>
 
 </resources>
