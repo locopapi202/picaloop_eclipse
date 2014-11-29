@@ -1648,7 +1648,7 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f09002e;
         public static final int action_mode_bar_stub=0x7f09002d;
         public static final int action_mode_close_button=0x7f090020;
-        public static final int action_settings=0x7f09003f;
+        public static final int action_settings=0x7f090042;
         public static final int activity_chooser_view_content=0x7f090021;
         public static final int always=0x7f090014;
         public static final int beginning=0x7f09001b;
@@ -1663,6 +1663,8 @@ containing a value of this type.
         public static final int end=0x7f09001c;
         public static final int expand_activities_button=0x7f090022;
         public static final int expanded_menu=0x7f090028;
+        public static final int fbLoginButton=0x7f09003f;
+        public static final int gmailLoginButton=0x7f090040;
         public static final int home=0x7f090000;
         public static final int homeAsUp=0x7f09000e;
         public static final int icon=0x7f090026;
@@ -1674,6 +1676,7 @@ containing a value of this type.
         public static final int never=0x7f090017;
         public static final int none=0x7f09000f;
         public static final int normal=0x7f09000b;
+        public static final int pclLoginbutton=0x7f090041;
         public static final int progress_circular=0x7f090007;
         public static final int progress_horizontal=0x7f090008;
         public static final int radio=0x7f09002b;
@@ -1814,7 +1817,10 @@ containing a value of this type.
         public static final int abc_toolbar_collapse_description=0x7f0a0004;
         public static final int action_settings=0x7f0a0012;
         public static final int app_name=0x7f0a0010;
+        public static final int fbLogin_button=0x7f0a0013;
+        public static final int gmailLogin_button=0x7f0a0014;
         public static final int hello_world=0x7f0a0011;
+        public static final int pclLogin_button=0x7f0a0015;
     }
     public static final class style {
         /** 

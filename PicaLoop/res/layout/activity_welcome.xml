@@ -8,9 +8,31 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.picaloopand.picaloop.WelcomeActivity" >
 
-    <TextView
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/fbLoginButton"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="151dp"
+        android:text="@string/fbLogin_button" />
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/gmailLoginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/fbLoginButton"
+        android:layout_alignTop="@+id/fbLoginButton"
+        android:layout_marginTop="70dp"
+        android:text="@string/gmailLogin_button" />
+
+    <Button
+        android:id="@+id/pclLoginbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/gmailLoginButton"
+        android:layout_below="@+id/gmailLoginButton"
+        android:layout_marginTop="24dp"
+        android:text="@string/pclLogin_button" />
+
+</RelativeLayout> 
