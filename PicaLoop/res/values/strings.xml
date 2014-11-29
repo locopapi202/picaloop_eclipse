@@ -6,6 +6,10 @@
     <string name="action_settings">Settings</string>
     <string name="fbLogin_button">Sign up with Facebook</string>
     <string name="gmailLogin_button">Sign up with Google</string>
+<<<<<<< HEAD
     <string name="pclLogin_button">Sign up using email</string>
+=======
+    <string name="pclLogin_button">Register using email</string>
+>>>>>>> branch 'master' of https://github.com/locopapi202/picaloop_android.git
 
 </resources>
