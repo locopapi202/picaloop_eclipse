@@ -7,6 +7,9 @@
     <string name="fbLogin_button">Sign up with Facebook</string>
     <string name="gmailLogin_button">Sign up with Google</string>
     <string name="pclLogin_button">Sign up using email</string>
+    <string name="gmailpic">gmailpic</string>
+    <string name="btn_logout_from_google">Logout from Google</string>
+    <string name="btn_revoke_access">Revoke Access</string>
 
 
 </resources>
