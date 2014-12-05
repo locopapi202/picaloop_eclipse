@@ -2030,13 +2030,11 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f0b003f;
         public static final int action_mode_bar_stub=0x7f0b003e;
         public static final int action_mode_close_button=0x7f0b0031;
-        public static final int action_settings=0x7f0b0059;
+        public static final int action_settings=0x7f0b0053;
         public static final int activity_chooser_view_content=0x7f0b0032;
         public static final int always=0x7f0b0025;
         public static final int beginning=0x7f0b002c;
         public static final int book_now=0x7f0b0017;
-        public static final int btn_revoke_access=0x7f0b0058;
-        public static final int btn_sign_out=0x7f0b0057;
         public static final int buyButton=0x7f0b0013;
         public static final int buy_now=0x7f0b0018;
         public static final int buy_with_google=0x7f0b0019;
@@ -2052,12 +2050,8 @@ containing a value of this type.
         public static final int end=0x7f0b002d;
         public static final int expand_activities_button=0x7f0b0033;
         public static final int expanded_menu=0x7f0b0039;
-        public static final int fbLoginButton=0x7f0b0054;
-        public static final int gmailEmail=0x7f0b0053;
-        public static final int gmailLoginButton=0x7f0b0055;
-        public static final int gmailName=0x7f0b0052;
-        public static final int gmailProfilePic=0x7f0b0051;
-        public static final int gmailllProfile=0x7f0b0050;
+        public static final int fbLoginButton=0x7f0b0050;
+        public static final int googleLoginButton=0x7f0b0051;
         public static final int grayscale=0x7f0b001b;
         public static final int holo_dark=0x7f0b000e;
         public static final int holo_light=0x7f0b000f;
@@ -2075,7 +2069,7 @@ containing a value of this type.
         public static final int never=0x7f0b0028;
         public static final int none=0x7f0b000a;
         public static final int normal=0x7f0b000b;
-        public static final int pclLoginbutton=0x7f0b0056;
+        public static final int pclLoginbutton=0x7f0b0052;
         public static final int production=0x7f0b0010;
         public static final int progress_circular=0x7f0b0007;
         public static final int progress_horizontal=0x7f0b0008;
@@ -2222,10 +2216,9 @@ containing a value of this type.
          */
         public static final int abc_toolbar_collapse_description=0x7f060027;
         public static final int accept=0x7f060002;
-        public static final int action_settings=0x7f060035;
+        public static final int action_settings=0x7f060034;
+        public static final int action_signoff=0x7f060035;
         public static final int app_name=0x7f060033;
-        public static final int btn_logout_from_google=0x7f06003a;
-        public static final int btn_revoke_access=0x7f06003b;
         /**   Text for notification shown when the Android Wear apps needs to be updated. Only shown on the wearable. [CHAR LIMIT=NONE] 
          */
         public static final int common_android_wear_notification_needs_update_text=0x7f060009;
@@ -2329,9 +2322,8 @@ containing a value of this type.
         public static final int create_calendar_title=0x7f060004;
         public static final int decline=0x7f060003;
         public static final int fbLogin_button=0x7f060036;
-        public static final int gmailLogin_button=0x7f060037;
-        public static final int gmailpic=0x7f060039;
-        public static final int hello_world=0x7f060034;
+        public static final int googleLogin_button=0x7f060037;
+        public static final int googlepic=0x7f060039;
         public static final int pclLogin_button=0x7f060038;
         public static final int store_picture_message=0x7f060001;
         public static final int store_picture_title=0x7f060000;

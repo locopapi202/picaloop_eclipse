@@ -8,45 +8,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.picaloopand.picaloop.WelcomeActivity" >
 
-      <LinearLayout
-        android:id="@+id/gmailllProfile"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:orientation="horizontal"
-        android:weightSum="3"
-        android:visibility="gone">
- 
-        <ImageView
-            android:id="@+id/gmailProfilePic"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:contentDescription="@string/gmailpic"/>
- 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:orientation="vertical"
-            android:layout_weight="2" >
- 
-            <TextView
-                android:id="@+id/gmailName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:textSize="20sp" />
- 
-            <TextView
-                android:id="@+id/gmailEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:textSize="18sp" />
-        </LinearLayout>
-    </LinearLayout>
-    
     <Button
         android:id="@+id/fbLoginButton"
         android:layout_width="match_parent"
@@ -57,36 +18,23 @@
         android:text="@string/fbLogin_button" />
 
     <Button
-        android:id="@+id/gmailLoginButton"
+        android:id="@+id/googleLoginButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/fbLoginButton"
         android:layout_alignTop="@+id/fbLoginButton"
         android:layout_marginTop="70dp"
-        android:text="@string/gmailLogin_button" />
+        android:text="@string/googleLogin_button" />
 
     <Button
         android:id="@+id/pclLoginbutton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/gmailLoginButton"
-        android:layout_below="@+id/gmailLoginButton"
+        android:layout_alignLeft="@+id/googleLoginButton"
+        android:layout_below="@+id/googleLoginButton"
         android:layout_marginTop="24dp"
         android:text="@string/pclLogin_button" />
     
-        <Button
-        android:id="@+id/btn_sign_out"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_logout_from_google"
-        android:visibility="gone"
-        android:layout_marginBottom="10dp"/>
- 
-    <Button
-        android:id="@+id/btn_revoke_access"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_revoke_access"
-        android:visibility="gone" />
+
 
 </RelativeLayout> 
