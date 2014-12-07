@@ -1,7 +1,8 @@
 package com.picaloopand.picaloop;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,11 +11,12 @@ import android.widget.Button;
 import android.widget.Toast;
 
 
-public class WelcomeActivity extends ActionBarActivity implements OnClickListener {
+public class WelcomeActivity extends Activity implements OnClickListener {
 	
 	Button googleLoginButton;
 	Button fbLoginButton;
 	Button pclLoginbutton;
+	
 		
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,10 +76,10 @@ public class WelcomeActivity extends ActionBarActivity implements OnClickListene
 	 * Sign-in using gmail
 	 * */
 	private void signInWithGoogle() {
-		Toast.makeText(getApplicationContext(), "Google Sign in Clicked!", Toast.LENGTH_LONG).show();    
-	   
+		//Toast.makeText(getApplicationContext(), "Google Sign in Clicked!", Toast.LENGTH_LONG).show();
+		Intent intent = new Intent(this, GoogleLoginActivity.class);
+		startActivity(intent);
 	}
-	
 	/**
 	 * Sign-in using fb
 	 * */
@@ -92,5 +94,5 @@ public class WelcomeActivity extends ActionBarActivity implements OnClickListene
 		Toast.makeText(getApplicationContext(), "PCL Sign in Clicked!", Toast.LENGTH_LONG).show();
 	}
 	
-
+	
 }

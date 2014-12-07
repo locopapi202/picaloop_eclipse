@@ -2030,7 +2030,8 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f0b003f;
         public static final int action_mode_bar_stub=0x7f0b003e;
         public static final int action_mode_close_button=0x7f0b0031;
-        public static final int action_settings=0x7f0b0053;
+        public static final int action_settings=0x7f0b0057;
+        public static final int action_signoff=0x7f0b0058;
         public static final int activity_chooser_view_content=0x7f0b0032;
         public static final int always=0x7f0b0025;
         public static final int beginning=0x7f0b002c;
@@ -2050,8 +2051,12 @@ containing a value of this type.
         public static final int end=0x7f0b002d;
         public static final int expand_activities_button=0x7f0b0033;
         public static final int expanded_menu=0x7f0b0039;
-        public static final int fbLoginButton=0x7f0b0050;
-        public static final int googleLoginButton=0x7f0b0051;
+        public static final int fbLoginButton=0x7f0b0054;
+        public static final int googleEmail=0x7f0b0053;
+        public static final int googleLoginButton=0x7f0b0055;
+        public static final int googleName=0x7f0b0052;
+        public static final int googleProfilePic=0x7f0b0051;
+        public static final int googlellProfile=0x7f0b0050;
         public static final int grayscale=0x7f0b001b;
         public static final int holo_dark=0x7f0b000e;
         public static final int holo_light=0x7f0b000f;
@@ -2069,7 +2074,7 @@ containing a value of this type.
         public static final int never=0x7f0b0028;
         public static final int none=0x7f0b000a;
         public static final int normal=0x7f0b000b;
-        public static final int pclLoginbutton=0x7f0b0052;
+        public static final int pclLoginbutton=0x7f0b0056;
         public static final int production=0x7f0b0010;
         public static final int progress_circular=0x7f0b0007;
         public static final int progress_horizontal=0x7f0b0008;
@@ -2152,11 +2157,13 @@ containing a value of this type.
         public static final int abc_search_dropdown_item_icons_2line=0x7f030014;
         public static final int abc_search_view=0x7f030015;
         public static final int abc_simple_dropdown_hint=0x7f030016;
-        public static final int activity_welcome=0x7f030017;
-        public static final int support_simple_spinner_dropdown_item=0x7f030018;
+        public static final int activity_google_login=0x7f030017;
+        public static final int activity_welcome=0x7f030018;
+        public static final int support_simple_spinner_dropdown_item=0x7f030019;
     }
     public static final class menu {
-        public static final int welcome=0x7f0c0000;
+        public static final int google_login=0x7f0c0000;
+        public static final int welcome=0x7f0c0001;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -2324,9 +2331,11 @@ containing a value of this type.
         public static final int fbLogin_button=0x7f060036;
         public static final int googleLogin_button=0x7f060037;
         public static final int googlepic=0x7f060039;
+        public static final int hello_world=0x7f06003b;
         public static final int pclLogin_button=0x7f060038;
         public static final int store_picture_message=0x7f060001;
         public static final int store_picture_title=0x7f060000;
+        public static final int title_activity_google_login=0x7f06003a;
         /**  Text on a placeholder buy button when Google Play services is not
          available or up-to-date 
          */
