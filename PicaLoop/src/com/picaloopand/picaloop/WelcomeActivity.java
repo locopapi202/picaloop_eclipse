@@ -84,7 +84,9 @@ public class WelcomeActivity extends Activity implements OnClickListener {
 	 * Sign-in using fb
 	 * */
 	private void signInWithFb() {
-		Toast.makeText(getApplicationContext(), "FB Sign in Clicked!", Toast.LENGTH_LONG).show();
+		//Toast.makeText(getApplicationContext(), "FB Sign in Clicked!", Toast.LENGTH_LONG).show();
+		Intent intent = new Intent(this, FacebookLoginActivity.class);
+		startActivity(intent);
 	}
 	
 	/**
