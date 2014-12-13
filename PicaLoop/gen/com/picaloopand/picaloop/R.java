@@ -2238,7 +2238,7 @@ containing a value of this type.
         public static final int com_facebook_list_section_header_background=0x7f020047;
         public static final int com_facebook_loginbutton_silver=0x7f020048;
         public static final int com_facebook_logo=0x7f020049;
-        public static final int com_facebook_picker_default_separator_color=0x7f020083;
+        public static final int com_facebook_picker_default_separator_color=0x7f020084;
         public static final int com_facebook_picker_item_background=0x7f02004a;
         public static final int com_facebook_picker_list_focused=0x7f02004b;
         public static final int com_facebook_picker_list_longpressed=0x7f02004c;
@@ -2294,8 +2294,9 @@ containing a value of this type.
         public static final int ic_plusone_small_off_client=0x7f02007e;
         public static final int ic_plusone_standard_off_client=0x7f02007f;
         public static final int ic_plusone_tall_off_client=0x7f020080;
-        public static final int powered_by_google_dark=0x7f020081;
-        public static final int powered_by_google_light=0x7f020082;
+        public static final int loginsplash=0x7f020081;
+        public static final int powered_by_google_dark=0x7f020082;
+        public static final int powered_by_google_light=0x7f020083;
     }
     public static final class id {
         public static final int action_bar=0x7f0b004d;
@@ -2362,10 +2363,10 @@ containing a value of this type.
         public static final int end=0x7f0b0027;
         public static final int expand_activities_button=0x7f0b003e;
         public static final int expanded_menu=0x7f0b0044;
-        public static final int fbLoginButton=0x7f0b0064;
+        public static final int fbLoginButton=0x7f0b0065;
         public static final int fb_login_page=0x7f0b005b;
         public static final int googleEmail=0x7f0b0062;
-        public static final int googleLoginButton=0x7f0b0065;
+        public static final int googleLoginButton=0x7f0b0064;
         public static final int googleName=0x7f0b0061;
         public static final int googleProfilePic=0x7f0b0060;
         public static final int googlellProfile=0x7f0b005f;
@@ -2700,20 +2701,19 @@ containing a value of this type.
         public static final int create_calendar_message=0x7f070032;
         public static final int create_calendar_title=0x7f070031;
         public static final int decline=0x7f070030;
-        public static final int facebook_app_id=0x7f07005b;
+        public static final int facebook_app_id=0x7f07005a;
         public static final int fbLogin_button=0x7f070054;
-        public static final int fb_user_ac=0x7f07005e;
-        public static final int fb_user_in=0x7f07005d;
+        public static final int fb_user_ac=0x7f07005d;
+        public static final int fb_user_in=0x7f07005c;
         public static final int googleLogin_button=0x7f070055;
         public static final int googlepic=0x7f070057;
         public static final int hello_user=0x7f070053;
-        public static final int hello_world=0x7f070059;
         public static final int pclLogin_button=0x7f070056;
         public static final int store_picture_message=0x7f07002e;
         public static final int store_picture_title=0x7f07002d;
-        public static final int title_activity_facebook_login=0x7f07005a;
+        public static final int title_activity_facebook_login=0x7f070059;
         public static final int title_activity_google_login=0x7f070058;
-        public static final int title_activity_user_logged_in=0x7f07005c;
+        public static final int title_activity_user_logged_in=0x7f07005b;
         /**  Text on a placeholder buy button when Google Play services is not
          available or up-to-date 
          */

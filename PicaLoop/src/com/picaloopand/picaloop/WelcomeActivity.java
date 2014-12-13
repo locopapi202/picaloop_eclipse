@@ -2,36 +2,69 @@ package com.picaloopand.picaloop;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.common.SignInButton;
 
 
 public class WelcomeActivity extends Activity implements OnClickListener {
 	
-	Button googleLoginButton;
+	SignInButton googleLoginButton;
 	Button fbLoginButton;
-	Button pclLoginbutton;
-	
+	Button pclLoginButton;
+	String googleLoginButtonText = "Sign in with Google";
 		
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
         
-        googleLoginButton = (Button) findViewById(R.id.googleLoginButton);
+        googleLoginButton = (SignInButton) findViewById(R.id.googleLoginButton);
         googleLoginButton.setOnClickListener(this);
         fbLoginButton = (Button) findViewById(R.id.fbLoginButton);
         fbLoginButton.setOnClickListener(this);
-        pclLoginbutton = (Button) findViewById(R.id.pclLoginbutton);
-        pclLoginbutton.setOnClickListener(this);
+        pclLoginButton = (Button) findViewById(R.id.pclLoginbutton);
+        pclLoginButton.setOnClickListener(this);
+        
+        setGooglePlusButtonText(googleLoginButton, googleLoginButtonText);
+        
+      //Temp place holder for button colors
+        fbLoginButton.setBackgroundColor(Color.rgb(59, 89, 182));
+        fbLoginButton.setTextColor(Color.WHITE);
+        pclLoginButton.setBackgroundColor(Color.rgb(64, 0, 72));
+        pclLoginButton.setTextColor(Color.WHITE);
               
     }
+    
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+    }
  
+    protected void setGooglePlusButtonText(SignInButton signInButton, String buttonText) {
+        // Find the TextView that is inside of the SignInButton and set its text
+        for (int i = 0; i < signInButton.getChildCount(); i++) {
+            View v = signInButton.getChildAt(i);
+
+            if (v instanceof TextView) {
+                TextView tv = (TextView) v;
+                tv.setText(buttonText);
+                return;
+            }
+        }
+    }
+    
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

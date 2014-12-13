@@ -2,31 +2,20 @@ package com.picaloopand.picaloop;
 
 
 
-import com.facebook.FacebookAuthorizationException;
-import com.facebook.FacebookOperationCanceledException;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.util.Log;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import com.facebook.Session;
 import com.facebook.SessionState;
 import com.facebook.UiLifecycleHelper;
-import com.facebook.model.GraphObject;
 import com.facebook.model.GraphUser;
-
-
 import com.facebook.widget.FacebookDialog;
 import com.facebook.widget.LoginButton;
 import com.facebook.widget.ProfilePictureView;
-
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.ActionBarActivity;
-import android.app.AlertDialog;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.TextView;
-import android.widget.Toast;
 
 public class FacebookLoginActivity extends FragmentActivity {
 
