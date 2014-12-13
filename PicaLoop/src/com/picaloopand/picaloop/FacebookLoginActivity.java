@@ -27,8 +27,7 @@ public class FacebookLoginActivity extends FragmentActivity {
 	private TextView greeting;
     private UiLifecycleHelper uiHelper;
     private static final String TAG = "FacebookLoginActivity";
-    UserLoggedInActivity fb_user_status_in = new UserLoggedInActivity();
-    
+     
     private Session.StatusCallback callback = new Session.StatusCallback() {
         @Override
         public void call(Session session, SessionState state, Exception exception) {
