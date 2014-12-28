@@ -8,9 +8,62 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.picaloopand.picaloop.CreateALoopActivity" >
 
-    <TextView
+    <ImageButton
+        android:id="@+id/foodButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_local_restaurant_black_48dp" />
+
+    <ImageButton
+        android:id="@+id/drinksButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_local_bar_black_48dp" />
+
+
+     <ImageButton
+         android:id="@+id/movieButton"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentRight="true"
+         android:layout_alignTop="@+id/foodButton"
+         android:src="@drawable/ic_local_movies_black_48dp" />
+
+     <ImageButton
+         android:id="@+id/spotSubmit"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/foodButton"
+         android:layout_alignParentBottom="true"
+         android:layout_marginBottom="49dp"
+         android:src="@drawable/ic_arrow_forward_black_48dp" />
+
+     <ImageView
+         android:id="@+id/drinksSelect"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBottom="@+id/drinksButton"
+         android:layout_alignRight="@+id/drinksButton"
+         android:visibility="gone"
+         android:src="@drawable/abc_btn_check_to_on_mtrl_015" />
+     
+     <ImageView
+         android:id="@+id/foodSelect"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBottom="@+id/foodButton"
+         android:layout_alignRight="@+id/foodButton"
+         android:visibility="gone"
+         android:src="@drawable/abc_btn_check_to_on_mtrl_015" />
+          
+      <ImageView
+         android:id="@+id/movieSelect"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBottom="@+id/movieButton"
+         android:layout_alignRight="@+id/movieButton"
+         android:visibility="gone"
+         android:src="@drawable/abc_btn_check_to_on_mtrl_015" />
 
 </RelativeLayout>
