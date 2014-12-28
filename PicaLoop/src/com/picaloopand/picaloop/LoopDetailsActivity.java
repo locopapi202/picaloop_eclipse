@@ -1,6 +1,7 @@
 package com.picaloopand.picaloop;
 
-import android.content.Intent;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -9,33 +10,24 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.plus.Plus;
-
-public class CreateALoopActivity extends ActionBarActivity {
-	SharedPreferences userProfile;
-		
+public class LoopDetailsActivity extends ActionBarActivity {
+	
+	FragmentManager fragmentManager;
+    FragmentTransaction fragmentTransaction;
+    
+    SharedPreferences userProfile;
+    
 	protected MyApplication app;
-	
-	// Google client to interact with Google API
-	public static GoogleApiClient mGoogleApiClient;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-
 		userProfile = getSharedPreferences("userProfile", MODE_PRIVATE);
-       // Get the application instance
+	       // Get the application instance
         app = (MyApplication)getApplication();
 		
-		setContentView(R.layout.activity_create_aloop);
-		
-        // Initializing google plus api client
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .addApi(Plus.API)
-                .addScope(Plus.SCOPE_PLUS_LOGIN)
-                .build();
+		setContentView(R.layout.activity_loop_details);
 	}
 
     @Override
@@ -73,10 +65,15 @@ public class CreateALoopActivity extends ActionBarActivity {
 
 	private void openSettings() {
 		// TODO Auto-generated method stub
-	//	Toast.makeText(getApplicationContext(), "Settings Clicked!", Toast.LENGTH_LONG).show();
-		Intent intent = new Intent(this, LoopDetailsActivity.class);
-		startActivity(intent);
-   
+		//Toast.makeText(getApplicationContext(), "Settings Clicked!", Toast.LENGTH_LONG).show();
+        
+		// get fragment manager
+		 fragmentManager = getFragmentManager();
+		
+		 // add
+		 fragmentTransaction = fragmentManager.beginTransaction();
+		 fragmentTransaction.add(R.id.bar_fragment, new BarFragment());
+		 fragmentTransaction.commit();   
 	}
 
 	private void openProfile() {
@@ -84,9 +81,5 @@ public class CreateALoopActivity extends ActionBarActivity {
 		Toast.makeText(getApplicationContext(), "Profile Clicked!", Toast.LENGTH_LONG).show();
 	}
 
-	/*private void signOut() {
-		// TODO Auto-generated method stub
-		//Toast.makeText(getApplicationContext(), "signOut Clicked!", Toast.LENGTH_LONG).show();
-		
-	}  */
+	  
 }
