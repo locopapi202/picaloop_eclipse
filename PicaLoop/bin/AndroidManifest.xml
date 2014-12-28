@@ -59,6 +59,14 @@
             android:name=".CreateALoopActivity"
             android:label="@string/title_activity_create_aloop" >
         </activity>
+        <activity
+            android:name=".BarFragment"
+            android:label="@string/title_activity_bar" >
+        </activity>
+        <activity
+            android:name=".LoopDetailsActivity"
+            android:label="@string/title_activity_loop_details" >
+        </activity>
     </application>
 
 </manifest>

@@ -55,7 +55,7 @@ public class CreateALoopActivity extends ActionBarActivity {
 		userProfile = getSharedPreferences("userProfile", MODE_PRIVATE);
        // Get the application instance
         userProfile = getSharedPreferences("userProfile", MODE_PRIVATE);
-        userSignInMethod = userProfile.getString("userSignIn", null);
+
         
         selectedSpots = getSharedPreferences("selectedSpots", MODE_PRIVATE);
         editSelectedSpots = selectedSpots.edit();
