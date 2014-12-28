@@ -5,16 +5,13 @@ import java.io.InputStream;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.IntentSender.SendIntentException;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -28,7 +25,7 @@ import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListe
 import com.google.android.gms.plus.Plus;
 import com.google.android.gms.plus.model.people.Person;
 
-public class GoogleLoginActivity extends ActionBarActivity implements ConnectionCallbacks,
+public class GoogleLoginActivity extends Activity implements ConnectionCallbacks,
 OnConnectionFailedListener {
 	
     ImageView imgProfilePic;
@@ -37,7 +34,7 @@ OnConnectionFailedListener {
 	//boolean googleLoginSignInClicked = true;
 	boolean googleLoginIntentInProgress;
 	// Google client to interact with Google API
-	private GoogleApiClient mGoogleApiClient;
+	public static GoogleApiClient mGoogleApiClient;
 	public static final int RC_SIGN_IN = 0;
 	private static final String TAG = "WelcomeActivity";
 	/* Track whether the sign-in button has been clicked so that we know to resolve
@@ -53,18 +50,30 @@ OnConnectionFailedListener {
     // Profile pic image size in pixels
     private static final int PROFILE_PIC_SIZE = 400;
 	
+    SharedPreferences userProfile;
+    public static Editor editProfile;
 	
+    protected MyApplication app;
+    
+    public static final String SIGN_IN_METHOD = "google";
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.activity_google_login);
+        setContentView(R.layout.activity_google_login);
+        
         imgProfilePic = (ImageView) findViewById(R.id.googleProfilePic);
         googleName = (TextView) findViewById(R.id.googleName);
         googleEmail = (TextView) findViewById(R.id.googleEmail);
         googlellProfileLayout = (LinearLayout) findViewById(R.id.googlellProfile);
-               
+        userProfile = getSharedPreferences("userProfile", MODE_PRIVATE);
+        editProfile = userProfile.edit();
+        
+        
+        // Get the application instance
+       app = (MyApplication)getApplication();
+        
         // Initializing google plus api client
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
@@ -86,42 +95,11 @@ OnConnectionFailedListener {
         }
     }
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-	    MenuInflater inflater = getMenuInflater();
-	    inflater.inflate(R.menu.actionbar_menu, menu);
-	    return super.onCreateOptionsMenu(menu);
-
-	}
-	
-	
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		
-		// Handle presses on the action bar items
-	    switch (item.getItemId()) {
-	        case R.id.action_signoff:
-	        	signOutFromGplus();
-	        	//signInWithgoogle();
-	            return true;
-	        case R.id.action_settings:
-	            openSettings();
-	            return true;
-	        default:
-	            return super.onOptionsItemSelected(item);
-	    }
-
-	}
 
 	private void openSettings() {
 		// TODO Auto-generated method stub
 		Toast.makeText(this, "settings menu clicked!", Toast.LENGTH_LONG).show();
 	}
-
 
 
 	/* A helper method to resolve the current ConnectionResult error. */
@@ -160,7 +138,12 @@ OnConnectionFailedListener {
 		   if (!result.hasResolution()) {
 		        GooglePlayServicesUtil.getErrorDialog(result.getErrorCode(), this,
 		                0).show();
-		        return;
+				editProfile.putString("userSignIn", null);
+				editProfile.commit();
+			    Intent intent = new Intent(this, WelcomeActivity.class);
+				startActivity(intent);
+
+		       // return;
 		    }
 		  if (!googleLoginIntentInProgress) {
 		    // Store the ConnectionResult so that we can use it later when the user clicks
@@ -173,6 +156,10 @@ OnConnectionFailedListener {
 		      resolveSignInError();
 		    }
 		  }
+			/*editProfile.putString("userSignIn", null);
+			editProfile.commit();
+		    Intent intent = new Intent(this, WelcomeActivity.class);
+			startActivity(intent);*/
 		}
 		
 	@Override
@@ -181,31 +168,21 @@ OnConnectionFailedListener {
 		Toast.makeText(this, "User is connected!", Toast.LENGTH_LONG).show();
 	    // Get user's information
 	    getProfileInformation();
+	    
+	    Intent intent = new Intent(this, CreateALoopActivity.class);
+		startActivity(intent);
 	 
 	    // Update the UI after signin
-	    updateUI(true);
+	    //updateUI(true);
 	}
 	
 	@Override
 	public void onConnectionSuspended(int arg0) {
 	    mGoogleApiClient.connect();
-	    updateUI(false);
+	   // updateUI(false);
 	}
 	
-	/**
-	 * Updating the UI, showing/hiding buttons and profile layout
-	 * */
-	private void updateUI(boolean isSignedIn) {
-	    if (isSignedIn) {
 
-	        googlellProfileLayout.setVisibility(View.VISIBLE);
-
-	    } else {
-	        googlellProfileLayout.setVisibility(View.GONE);
-
-	    }
-	}
-	
 
 	/**
 	 * Fetching user's information name, email, profile pic
@@ -224,6 +201,14 @@ OnConnectionFailedListener {
 	                    + personGooglePlusProfile + ", email: " + email
 	                    + ", Image: " + personPhotoUrl);
 	 
+
+	            editProfile.clear();
+	            editProfile.putString("userSignIn", SIGN_IN_METHOD);
+	            editProfile.putString("userName", personName);
+	            editProfile.putString("userEmail", email);
+	            editProfile.putString("userProfilePic", personPhotoUrl);
+	            editProfile.commit();  
+	            
 	            googleName.setText(personName);
 	            googleEmail.setText(email);
 	 
@@ -233,7 +218,7 @@ OnConnectionFailedListener {
 	            personPhotoUrl = personPhotoUrl.substring(0,
 	                    personPhotoUrl.length() - 2)
 	                    + PROFILE_PIC_SIZE;
-	 
+	            
 	            new LoadProfileImage(imgProfilePic).execute(personPhotoUrl);
 	 
 	        } else {
@@ -243,6 +228,8 @@ OnConnectionFailedListener {
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	    }
+   
+	    
 	}
 	 
 	/**
@@ -276,16 +263,17 @@ OnConnectionFailedListener {
 	/**
 	 * Sign-out from google
 	 * */
-	private void signOutFromGplus() {
-	    if (mGoogleApiClient.isConnected()) {
-	        Plus.AccountApi.clearDefaultAccount(mGoogleApiClient);
-	        mGoogleApiClient.disconnect();
-	        mGoogleApiClient.connect();
-	        updateUI(false);
-			Intent intent = new Intent(this, WelcomeActivity.class);
-			startActivity(intent);
+	/*public static void signOutFromGplus(MyApplication app, GoogleApiClient googleApi) {
+	    if (googleApi.isConnected()) {
+	        Plus.AccountApi.clearDefaultAccount(googleApi);
+	        googleApi.disconnect();
+	        googleApi.connect();
+	      //  updateUI(false);
+	        editProfile.putString("userSignIn", null);
+			app.getApplicationContext().startActivity(new Intent(app.getApplicationContext(), GoogleLoginActivity.class));
+			
 	    }
-	}
+	} */
 	
 	
 }

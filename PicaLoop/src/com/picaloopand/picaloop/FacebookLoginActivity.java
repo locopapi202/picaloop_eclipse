@@ -66,7 +66,9 @@ public class FacebookLoginActivity extends FragmentActivity {
     	profilePictureView = (ProfilePictureView) findViewById(R.id.profilePicture);
     	greeting = (TextView) findViewById(R.id.greeting);
     	
-        loginButton.setUserInfoChangedCallback(new LoginButton.UserInfoChangedCallback() {
+        
+    	
+    	loginButton.setUserInfoChangedCallback(new LoginButton.UserInfoChangedCallback() {
             @Override
             public void onUserInfoFetched(GraphUser user) {
                FacebookLoginActivity.this.user = user;

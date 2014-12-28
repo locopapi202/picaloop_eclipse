@@ -4,6 +4,7 @@
     <string name="app_name">PicaLoop</string>
     <string name="action_settings">Settings</string>
     <string name="action_signoff">Sign off</string>
+    <string name="action_profile">Profile</string>
     <string name="hello_user">Hello %1$s %2$s!</string>
     <string name="fbLogin_button">Sign in with Facebook</string>
     <string name="googleLogin_button">Sign in with Google</string>
@@ -12,8 +13,10 @@
     <string name="title_activity_google_login">GoogleLoginActivity</string>
     <string name="title_activity_facebook_login">FacebookLoginActivity</string>
     <string name="facebook_app_id">396946067128069</string>
-    <string name="title_activity_user_logged_in">UserLoggedInActivity</string>
     <string name="fb_user_in">Facebook session is Inactive</string>
     <string name="fb_user_ac">Facebook session is Active</string>
+    <string name="title_activity_user_profile">UserProfileActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_create_aloop">CreateALoopActivity</string>
 
 </resources>

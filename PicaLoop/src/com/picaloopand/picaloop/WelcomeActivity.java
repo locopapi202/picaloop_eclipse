@@ -2,6 +2,7 @@ package com.picaloopand.picaloop;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.graphics.Color;
@@ -23,10 +24,28 @@ public class WelcomeActivity extends Activity implements OnClickListener {
 	Button fbLoginButton;
 	Button pclLoginButton;
 	String googleLoginButtonText = "Sign in with Google";
+	private static final String GOOGLESIGNIN = "google";
+	private static final String FACEBOOKSIGNIN = "facebook";
 		
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
+        SharedPreferences editProfile = this.getSharedPreferences("userProfile", MODE_PRIVATE);
+        String userSignIn = editProfile.getString("userSignIn", null);
+        
+        if(userSignIn != null){
+        	if(userSignIn.contains(GOOGLESIGNIN)){
+        		Intent intent = new Intent(this, GoogleLoginActivity.class);
+        		startActivity(intent);
+        	}
+        	if(userSignIn.contains(FACEBOOKSIGNIN)){
+        		Intent intent = new Intent(this, FacebookLoginActivity.class);
+        		startActivity(intent);
+        	}
+        	
+        }
+        
         setContentView(R.layout.activity_welcome);
         
         googleLoginButton = (SignInButton) findViewById(R.id.googleLoginButton);
