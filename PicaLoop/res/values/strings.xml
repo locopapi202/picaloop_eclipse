@@ -17,7 +17,7 @@
     <string name="fb_user_ac">Facebook session is Active</string>
     <string name="title_activity_user_profile">UserProfileActivity</string>
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_create_aloop">CreateALoopActivity</string>
+    <string name="title_activity_create_aloop">Select your spots !!</string>
     <string name="title_activity_bar">BarActivity</string>
     <string name="Auto_Complete_Where_Text">Enter Location Name</string>
     <string name="bar_icon">bar_icon</string>
