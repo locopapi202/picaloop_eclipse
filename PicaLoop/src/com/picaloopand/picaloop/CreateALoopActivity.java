@@ -35,13 +35,24 @@ public class CreateALoopActivity extends ActionBarActivity {
 	public ImageButton drinksButton ;
 	public ImageButton foodButton ;
 	public ImageButton movieButton ;
+	public ImageButton bikeButton ;
+	public ImageButton groceryButton ;
+	public ImageButton waterButton ;
+	public ImageButton hotelButton ;
+	public ImageButton airportButton ;
+	public ImageButton photoButton ;
 	public ImageButton spotSubmit ;
 	
 	//Display when selected
 	public ImageView drinksSelect ;
 	public ImageView foodSelect ;
 	public ImageView movieSelect ;
-	
+	public ImageView bikeSelect ;
+	public ImageView grocerySelect ;
+	public ImageView waterSelect ;
+	public ImageView hotelSelect ;
+	public ImageView airportSelect ;
+	public ImageView photoSelect ;
 	protected MyApplication app;
 	
 	// Google client to interact with Google API
@@ -64,6 +75,12 @@ public class CreateALoopActivity extends ActionBarActivity {
         editSelectedSpots.putString("drinks", FALSE);
         editSelectedSpots.putString("food", FALSE);
         editSelectedSpots.putString("movie", FALSE);
+        editSelectedSpots.putString("bike", FALSE);
+        editSelectedSpots.putString("grocery", FALSE);
+        editSelectedSpots.putString("water", FALSE);
+        editSelectedSpots.putString("hotel", FALSE);
+        editSelectedSpots.putString("airport", FALSE);
+        editSelectedSpots.putString("photo", FALSE);
         editSelectedSpots.commit();
         
         // Get the application instance
@@ -80,12 +97,24 @@ public class CreateALoopActivity extends ActionBarActivity {
         drinksButton = (ImageButton) findViewById(R.id.drinksButton);
         foodButton = (ImageButton) findViewById(R.id.foodButton);
         movieButton = (ImageButton) findViewById(R.id.movieButton);
+        bikeButton = (ImageButton) findViewById(R.id.bikeButton);
+        groceryButton = (ImageButton) findViewById(R.id.groceryButton);
+        waterButton = (ImageButton) findViewById(R.id.waterButton);
+        hotelButton = (ImageButton) findViewById(R.id.hotelButton);
+        airportButton = (ImageButton) findViewById(R.id.airportButton);
+        photoButton = (ImageButton) findViewById(R.id.photoButton);
         spotSubmit = (ImageButton) findViewById(R.id.spotSubmit);
         
         drinksSelect = (ImageView) findViewById(R.id.drinksSelect);
         foodSelect = (ImageView) findViewById(R.id.foodSelect);
         movieSelect = (ImageView) findViewById(R.id.movieSelect);
-       
+        bikeSelect = (ImageView) findViewById(R.id.bikeSelect);
+        grocerySelect = (ImageView) findViewById(R.id.grocerySelect);
+        waterSelect = (ImageView) findViewById(R.id.waterSelect);
+        hotelSelect = (ImageView) findViewById(R.id.hotelSelect);
+        airportSelect = (ImageView) findViewById(R.id.airportSelect);
+        photoSelect = (ImageView) findViewById(R.id.photoSelect);
+
         drinksButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -126,7 +155,89 @@ public class CreateALoopActivity extends ActionBarActivity {
             }
           });	
         
+        bikeButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            	  if (bikeSelect.getVisibility() == 0){
+            		  bikeSelect.setVisibility(View.GONE);
+                	  editSelectedSpots.putString("bike", FALSE);
+                	  editSelectedSpots.commit();
+            	  }else
+            		  bikeSelect.setVisibility(View.VISIBLE);
+            	  editSelectedSpots.putString("bike", TRUE);
+            	  editSelectedSpots.commit();
+            	  }
+          });
         
+        groceryButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            	  if (grocerySelect.getVisibility() == 0){
+            		  grocerySelect.setVisibility(View.GONE);
+                	  editSelectedSpots.putString("grocery", FALSE);
+                	  editSelectedSpots.commit();
+            	  }else
+            		  grocerySelect.setVisibility(View.VISIBLE);
+            	  editSelectedSpots.putString("grocery", TRUE);
+            	  editSelectedSpots.commit();
+            	  }
+          });
+        
+        waterButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            	  if (waterSelect.getVisibility() == 0){
+            		  waterSelect.setVisibility(View.GONE);
+                	  editSelectedSpots.putString("water", FALSE);
+                	  editSelectedSpots.commit();
+            	  }else
+            		  waterSelect.setVisibility(View.VISIBLE);
+            	  editSelectedSpots.putString("water", TRUE);
+            	  editSelectedSpots.commit();
+            	  }
+          });
+        
+        hotelButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            	  if (hotelSelect.getVisibility() == 0){
+            		  hotelSelect.setVisibility(View.GONE);
+                	  editSelectedSpots.putString("hotel", FALSE);
+                	  editSelectedSpots.commit();
+            	  }else
+            		  hotelSelect.setVisibility(View.VISIBLE);
+            	  editSelectedSpots.putString("hotel", TRUE);
+            	  editSelectedSpots.commit();
+            	  }
+          });
+        
+        airportButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            	  if (airportSelect.getVisibility() == 0){
+            		  airportSelect.setVisibility(View.GONE);
+                	  editSelectedSpots.putString("airport", FALSE);
+                	  editSelectedSpots.commit();
+            	  }else
+            		  airportSelect.setVisibility(View.VISIBLE);
+            	  editSelectedSpots.putString("airport", TRUE);
+            	  editSelectedSpots.commit();
+            	  }
+          });
+        
+        photoButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            	  if (photoSelect.getVisibility() == 0){
+            		  photoSelect.setVisibility(View.GONE);
+                	  editSelectedSpots.putString("photo", FALSE);
+                	  editSelectedSpots.commit();
+            	  }else
+            		  photoSelect.setVisibility(View.VISIBLE);
+            	  editSelectedSpots.putString("photo", TRUE);
+            	  editSelectedSpots.commit();
+            	  }
+          });
       spotSubmit.setOnClickListener(new OnClickListener() {
           @Override
           public void onClick(View view) {
@@ -178,8 +289,7 @@ public class CreateALoopActivity extends ActionBarActivity {
 	private void openSettings() {
 		// TODO Auto-generated method stub
 	//	Toast.makeText(getApplicationContext(), "Settings Clicked!", Toast.LENGTH_LONG).show();
-		Intent intent = new Intent(this, LoopDetailsActivity.class);
-		startActivity(intent);
+
    
 	}
 
