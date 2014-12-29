@@ -28,8 +28,22 @@ public class LoopDetailsActivity extends ActionBarActivity {
         app = (MyApplication)getApplication();
 		
 		setContentView(R.layout.activity_loop_details);
+		
+		displayDetailFragments();
+		
+		  
 	}
 
+	public void displayDetailFragments(){
+		// get fragment manager
+				 fragmentManager = getFragmentManager();
+				
+				 // add
+				 fragmentTransaction = fragmentManager.beginTransaction();
+				 fragmentTransaction.add(R.id.bar_fragment, new BarFragment());
+				 fragmentTransaction.commit();
+	}
+	
     @Override
 	 public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -66,14 +80,7 @@ public class LoopDetailsActivity extends ActionBarActivity {
 	private void openSettings() {
 		// TODO Auto-generated method stub
 		//Toast.makeText(getApplicationContext(), "Settings Clicked!", Toast.LENGTH_LONG).show();
-        
-		// get fragment manager
-		 fragmentManager = getFragmentManager();
-		
-		 // add
-		 fragmentTransaction = fragmentManager.beginTransaction();
-		 fragmentTransaction.add(R.id.bar_fragment, new BarFragment());
-		 fragmentTransaction.commit();   
+ 
 	}
 
 	private void openProfile() {

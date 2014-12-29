@@ -41,4 +41,22 @@
         android:hint="@string/User_Comment"
         android:inputType="textMultiLine" />
 
+    <ImageView
+        android:id="@+id/bar_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/autoCompleteTextView1"
+        android:layout_centerVertical="true"
+        android:src="@drawable/bar" 
+        android:contentDescription="@string/bar_image"/>
+
+    <TextView
+        android:id="@+id/barTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/bar_image"
+        android:layout_below="@+id/bar_image"
+        android:text="@string/barTextView" 
+        android:clickable="true"/>
+
 </RelativeLayout>
