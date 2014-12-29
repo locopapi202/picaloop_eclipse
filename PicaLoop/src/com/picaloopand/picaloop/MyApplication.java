@@ -25,6 +25,8 @@ public class MyApplication extends android.app.Application {
     public static void signOut(MyApplication app, SharedPreferences userProfile){
     	String userSignInMethod;
         Editor editProfile;
+        Intent welcomeIntent = new Intent(app.getApplicationContext(), WelcomeActivity.class);
+	    welcomeIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             	
         userSignInMethod = userProfile.getString("userSignIn", null);
 		
@@ -34,11 +36,13 @@ public class MyApplication extends android.app.Application {
 	        editProfile.commit();
 			if(userSignInMethod.contains(GOOGLESIGNIN)){
 				//MyApplication.signOutFromGplus(app, mGoogleApiClient);
-				app.getApplicationContext().startActivity(new Intent(app.getApplicationContext(), WelcomeActivity.class));
+				//app.getApplicationContext().startActivity(new Intent(app.getApplicationContext(), WelcomeActivity.class));
+				app.getApplicationContext().startActivity(welcomeIntent);
 			}
 			if(userSignInMethod.contains(FACEBOOKSIGNIN)){
 				Toast.makeText(app.getApplicationContext(), "signOut Clicked! facebooklogin", Toast.LENGTH_LONG).show();
-				app.getApplicationContext().startActivity(new Intent(app.getApplicationContext(), WelcomeActivity.class));
+				//app.getApplicationContext().startActivity(new Intent(app.getApplicationContext(), WelcomeActivity.class));
+				app.getApplicationContext().startActivity(welcomeIntent);
 			}
          }
     	
@@ -51,7 +55,9 @@ public class MyApplication extends android.app.Application {
 	      //  googleApi.disconnect();
 	     //   googleApi.connect();
 	      //  updateUI(false);
-			app.getApplicationContext().startActivity(new Intent(app.getApplicationContext(), WelcomeActivity.class));
+		    Intent welcomeIntent = new Intent(app.getApplicationContext(), WelcomeActivity.class);
+		    welcomeIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			app.getApplicationContext().startActivity(welcomeIntent);
 			
 	   // }
 	} 
