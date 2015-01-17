@@ -361,7 +361,7 @@ public class EmailLoginActivity extends Activity implements
 	    		return true;
 	    	}
 						
-			if(userName != null){
+			if(userPassword != null){
 				if(userName.equals(mEmail) && userPassword.equals(mPassword)){
 					return true;
 				}
@@ -399,6 +399,7 @@ public class EmailLoginActivity extends Activity implements
 			    Toast.makeText(getApplicationContext(), "User is connected!", Toast.LENGTH_LONG).show();
 				Intent intent = new Intent(getApplicationContext(), CreateALoopActivity.class);
 				startActivity(intent);
+				finish();
 			} else {
 				showProgress(false);
 				mPasswordView

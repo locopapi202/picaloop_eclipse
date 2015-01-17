@@ -45,14 +45,17 @@ public class WelcomeActivity extends Activity implements OnClickListener {
         	if(userSignIn.contains(GOOGLESIGNIN)){
         		Intent intent = new Intent(this, GoogleLoginActivity.class);
         		startActivity(intent);
+        		finish();
         	}
         	if(userSignIn.contains(FACEBOOKSIGNIN)){
         		Intent intent = new Intent(this, FacebookLoginActivity.class);
         		startActivity(intent);
+        		finish();
         	}
         	if(userSignIn.contains(PCLSIGNIN)){
         		Intent intent = new Intent(this, EmailLoginActivity.class);
         		startActivity(intent);
+        		finish();
         	}
         	
         }
@@ -166,6 +169,7 @@ public class WelcomeActivity extends Activity implements OnClickListener {
 		//Toast.makeText(getApplicationContext(), "Google Sign in Clicked!", Toast.LENGTH_LONG).show();
 		Intent intent = new Intent(this, GoogleLoginActivity.class);
 		startActivity(intent);
+		finish();
 	}
 	/**
 	 * Sign-in using fb
@@ -174,6 +178,7 @@ public class WelcomeActivity extends Activity implements OnClickListener {
 		//Toast.makeText(getApplicationContext(), "FB Sign in Clicked!", Toast.LENGTH_LONG).show();
 		Intent intent = new Intent(this, FacebookLoginActivity.class);
 		startActivity(intent);
+		finish();
 	}
 	
 	/**
@@ -182,9 +187,15 @@ public class WelcomeActivity extends Activity implements OnClickListener {
 	private void signInWithPcl() {
 		//Toast.makeText(getApplicationContext(), "PCL Sign in Clicked!", Toast.LENGTH_LONG).show();
 		Intent intent = new Intent(this, EmailLoginActivity.class);
-		startActivity(intent);		
+		startActivity(intent);	
+		finish();
 	}
 	
-	
+	 public void onBackPressed() {
+		   Intent intent = new Intent(Intent.ACTION_MAIN);
+		   intent.addCategory(Intent.CATEGORY_HOME);
+		   intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		   startActivity(intent);
+		 }
 	
 }

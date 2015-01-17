@@ -142,6 +142,7 @@ OnConnectionFailedListener {
 				editProfile.commit();
 			    Intent intent = new Intent(this, WelcomeActivity.class);
 				startActivity(intent);
+				finish();
 
 		       // return;
 		    }
@@ -171,6 +172,7 @@ OnConnectionFailedListener {
 	    
 	    Intent intent = new Intent(this, CreateALoopActivity.class);
 		startActivity(intent);
+		finish();
 	 
 	    // Update the UI after signin
 	    //updateUI(true);

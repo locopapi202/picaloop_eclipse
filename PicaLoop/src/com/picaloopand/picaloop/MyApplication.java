@@ -64,7 +64,7 @@ public class MyApplication extends android.app.Application {
 		    Intent welcomeIntent = new Intent(app.getApplicationContext(), WelcomeActivity.class);
 		    welcomeIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			app.getApplicationContext().startActivity(welcomeIntent);
-			
+            			
 	   // }
 	} 
 
