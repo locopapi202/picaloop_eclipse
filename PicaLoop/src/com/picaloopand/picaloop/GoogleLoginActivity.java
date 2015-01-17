@@ -207,6 +207,7 @@ OnConnectionFailedListener {
 	            editProfile.putString("userName", personName);
 	            editProfile.putString("userEmail", email);
 	            editProfile.putString("userProfilePic", personPhotoUrl);
+	            editProfile.putString("firstTime", "no");
 	            editProfile.commit();  
 	            
 	            googleName.setText(personName);

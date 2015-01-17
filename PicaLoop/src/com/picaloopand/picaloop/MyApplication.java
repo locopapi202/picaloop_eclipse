@@ -13,6 +13,7 @@ public class MyApplication extends android.app.Application {
     private static MyApplication instance;
 	private static final String GOOGLESIGNIN = "google";
 	private static final String FACEBOOKSIGNIN = "facebook";
+	private static final String PCLSIGNIN = "pcl";
 
     public MyApplication() {
     	instance = this;
@@ -41,6 +42,11 @@ public class MyApplication extends android.app.Application {
 			}
 			if(userSignInMethod.contains(FACEBOOKSIGNIN)){
 				Toast.makeText(app.getApplicationContext(), "signOut Clicked! facebooklogin", Toast.LENGTH_LONG).show();
+				//app.getApplicationContext().startActivity(new Intent(app.getApplicationContext(), WelcomeActivity.class));
+				app.getApplicationContext().startActivity(welcomeIntent);
+			}
+			if(userSignInMethod.contains(PCLSIGNIN)){
+			//	Toast.makeText(app.getApplicationContext(), "signOut Clicked! pcl", Toast.LENGTH_LONG).show();
 				//app.getApplicationContext().startActivity(new Intent(app.getApplicationContext(), WelcomeActivity.class));
 				app.getApplicationContext().startActivity(welcomeIntent);
 			}
