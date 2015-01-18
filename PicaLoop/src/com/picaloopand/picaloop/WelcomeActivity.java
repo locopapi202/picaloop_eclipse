@@ -3,6 +3,7 @@ package com.picaloopand.picaloop;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.graphics.Color;
@@ -26,26 +27,39 @@ public class WelcomeActivity extends Activity implements OnClickListener {
 	String googleLoginButtonText = "Sign in with Google";
 	private static final String GOOGLESIGNIN = "google";
 	private static final String FACEBOOKSIGNIN = "facebook";
+	private static final String PCLSIGNIN = "pcl";
+	
+	SharedPreferences userProfile;
+	public static Editor editProfile;		
+	public static final String EXTRA_MESSAGE = "com.picaloopand.picaloop.MESSAGE";
 		
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        SharedPreferences editProfile = this.getSharedPreferences("userProfile", MODE_PRIVATE);
-        String userSignIn = editProfile.getString("userSignIn", null);
+        userProfile = this.getSharedPreferences("userProfile", MODE_PRIVATE);
+        String userSignIn = userProfile.getString("userSignIn", null);
+        editProfile = userProfile.edit();
         
         if(userSignIn != null){
         	if(userSignIn.contains(GOOGLESIGNIN)){
         		Intent intent = new Intent(this, GoogleLoginActivity.class);
         		startActivity(intent);
+        		finish();
         	}
         	if(userSignIn.contains(FACEBOOKSIGNIN)){
         		Intent intent = new Intent(this, FacebookLoginActivity.class);
         		startActivity(intent);
+        		finish();
+        	}
+        	if(userSignIn.contains(PCLSIGNIN)){
+        		Intent intent = new Intent(this, EmailLoginActivity.class);
+        		startActivity(intent);
+        		finish();
         	}
         	
         }
-        
+        else{
         setContentView(R.layout.activity_welcome);
         
         googleLoginButton = (SignInButton) findViewById(R.id.googleLoginButton);
@@ -62,8 +76,32 @@ public class WelcomeActivity extends Activity implements OnClickListener {
         fbLoginButton.setTextColor(Color.WHITE);
         pclLoginButton.setBackgroundColor(Color.rgb(64, 0, 72));
         pclLoginButton.setTextColor(Color.WHITE);
-              
+        }        
     }
+    
+	   public void onStart() {
+	        super.onStart();
+	        SharedPreferences editProfile = this.getSharedPreferences("userProfile", MODE_PRIVATE);
+	        String userSignIn = editProfile.getString("userSignIn", null);
+	        
+	        if(userSignIn != null){
+	        	if(userSignIn.contains(GOOGLESIGNIN)){
+	        		Intent intent = new Intent(this, GoogleLoginActivity.class);
+	        		startActivity(intent);
+	        	}
+	        	if(userSignIn.contains(FACEBOOKSIGNIN)){
+	        		Intent intent = new Intent(this, FacebookLoginActivity.class);
+	        		startActivity(intent);
+	        	}
+	        	if(userSignIn.contains(PCLSIGNIN)){
+	        		Intent intent = new Intent(this, EmailLoginActivity.class);
+	        		//String message =  FIRSTSIGNIN;
+	        		//intent.putExtra(EXTRA_MESSAGE, message);
+	        		startActivity(intent);
+	        	}
+	        	
+	        }
+	    }
     
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
@@ -131,6 +169,7 @@ public class WelcomeActivity extends Activity implements OnClickListener {
 		//Toast.makeText(getApplicationContext(), "Google Sign in Clicked!", Toast.LENGTH_LONG).show();
 		Intent intent = new Intent(this, GoogleLoginActivity.class);
 		startActivity(intent);
+		finish();
 	}
 	/**
 	 * Sign-in using fb
@@ -139,14 +178,24 @@ public class WelcomeActivity extends Activity implements OnClickListener {
 		//Toast.makeText(getApplicationContext(), "FB Sign in Clicked!", Toast.LENGTH_LONG).show();
 		Intent intent = new Intent(this, FacebookLoginActivity.class);
 		startActivity(intent);
+		finish();
 	}
 	
 	/**
 	 * Sign-in using pcl
 	 * */
 	private void signInWithPcl() {
-		Toast.makeText(getApplicationContext(), "PCL Sign in Clicked!", Toast.LENGTH_LONG).show();
+		//Toast.makeText(getApplicationContext(), "PCL Sign in Clicked!", Toast.LENGTH_LONG).show();
+		Intent intent = new Intent(this, EmailLoginActivity.class);
+		startActivity(intent);	
+		finish();
 	}
 	
+	 public void onBackPressed() {
+		   Intent intent = new Intent(Intent.ACTION_MAIN);
+		   intent.addCategory(Intent.CATEGORY_HOME);
+		   intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		   startActivity(intent);
+		 }
 	
 }

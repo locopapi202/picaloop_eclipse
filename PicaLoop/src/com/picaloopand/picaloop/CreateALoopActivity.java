@@ -383,6 +383,7 @@ public class CreateALoopActivity extends ActionBarActivity {
 	    switch (item.getItemId()) {
 	        case R.id.action_signoff:
 	        	MyApplication.signOut(app, userProfile);
+	        	//finish();
 	        	return true;
 	        case R.id.action_profile:
 	            openProfile();
