@@ -1,17 +1,22 @@
 package com.picaloopand.picaloop;
 
+import android.R.integer;
+import android.R.string;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -22,13 +27,30 @@ public class CreateALoopActivity extends ActionBarActivity {
 	SharedPreferences userProfile;
 		
 	SharedPreferences selectedSpots;
+	SharedPreferences spotRanks;
     public static Editor editSelectedSpots;
+    public static Editor editSpotRanks;
     public static final String TRUE = "TRUE";
     public static final String FALSE = "FALSE";
     
     //Ordering constants
     int counter = 1;
     int drinkStatus = 0;
+    private String[] spots = {
+            "drinks",
+            "food",
+            "movie",
+            "bike",
+            "grocery",
+            "water",
+            "hotel",
+            "airport",
+            "photo",
+            "library",
+            "nature",
+            "painting"
+        };
+    
 
 	//Spot Icons
 	public ImageButton drinksButton ;
@@ -76,8 +98,12 @@ public class CreateALoopActivity extends ActionBarActivity {
         
         selectedSpots = getSharedPreferences("selectedSpots", MODE_PRIVATE);
         editSelectedSpots = selectedSpots.edit();
+        
+        spotRanks = getSharedPreferences("spotRanks", MODE_PRIVATE);
+        editSpotRanks = spotRanks.edit();
 		
         editSelectedSpots.clear();
+        editSpotRanks.clear();
         editSelectedSpots.putString("drinks", FALSE);
         editSelectedSpots.putString("food", FALSE);
         editSelectedSpots.putString("movie", FALSE);
@@ -91,6 +117,20 @@ public class CreateALoopActivity extends ActionBarActivity {
         editSelectedSpots.putString("nature", FALSE);
         editSelectedSpots.putString("painting", FALSE);
         editSelectedSpots.commit();
+        editSpotRanks.putInt("drinks", 0);
+        editSpotRanks.putInt("food", 0);
+        editSpotRanks.putInt("movie", 0);
+        editSpotRanks.putInt("bike", 0);
+        editSpotRanks.putInt("grocery", 0);
+        editSpotRanks.putInt("water", 0);
+        editSpotRanks.putInt("hotel", 0);
+        editSpotRanks.putInt("airport", 0);
+        editSpotRanks.putInt("photo", 0);
+        editSpotRanks.putInt("library", 0);
+        editSpotRanks.putInt("nature", 0);
+        editSpotRanks.putInt("painting", 0);
+        editSpotRanks.commit();
+        
         
         // Get the application instance
         app = (MyApplication)getApplication();
@@ -129,218 +169,120 @@ public class CreateALoopActivity extends ActionBarActivity {
         librarySelect = (ImageView) findViewById(R.id.librarySelect);
         natureSelect = (ImageView) findViewById(R.id.natureSelect);
         paintingSelect = (ImageView) findViewById(R.id.paintingSelect);
-
+         
+        
         drinksButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
             	  int black = R.drawable.ic_local_bar_black_48dp;
-            	  int grey = R.drawable.ic_local_bar_grey600_48dp;
+            	  int grey = R.drawable.ic_local_bar_white_48dp;
       		      pickCounter("drinks",drinksSelect,drinksButton,black,grey);
-            	  Toast.makeText(getApplicationContext(), Integer.toString(counter), Toast.LENGTH_LONG).show();
                }
-          });		
+          });
+        
         foodButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-            	if (selectedSpots.getString("food", null) == FALSE){
-        		  foodSelect.setVisibility(View.VISIBLE);
-        		  editSelectedSpots.putString("food", TRUE);
-            	  editSelectedSpots.commit();
-            	  counter++;
-        	  }else if (selectedSpots.getString("food", null) == TRUE){
-        		  foodSelect.setVisibility(View.GONE);
-        	      editSelectedSpots.putString("food", FALSE);
-        	      editSelectedSpots.commit();
-        	      counter--;
-                  }
-            Toast.makeText(getApplicationContext(), Integer.toString(counter), Toast.LENGTH_LONG).show();
-            }
-          });	
-        
-       movieButton.setOnClickListener(new OnClickListener() {
+            	  int black = R.drawable.ic_local_restaurant_black_48dp;
+            	  int grey = R.drawable.ic_local_restaurant_white_48dp;
+      		      pickCounter("food",foodSelect,foodButton,black,grey);
+               }
+          });
+       
+        movieButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-            	if (selectedSpots.getString("movie", null) == FALSE){
-        		  movieSelect.setVisibility(View.VISIBLE);
-        		  editSelectedSpots.putString("movie", TRUE);
-            	  editSelectedSpots.commit();
-            	  counter++;
-        	  }else if (selectedSpots.getString("movie", null) == TRUE){
-        		  movieSelect.setVisibility(View.GONE);
-        	      editSelectedSpots.putString("movie", FALSE);
-        	      editSelectedSpots.commit();
-        	      counter--;
-                  }
-            Toast.makeText(getApplicationContext(), Integer.toString(counter), Toast.LENGTH_LONG).show();
-            }
+            	  int black = R.drawable.ic_local_movies_black_48dp;
+            	  int grey = R.drawable.ic_local_movies_white_48dp;
+      		      pickCounter("movie",movieSelect,movieButton,black,grey);
+               }
           });
         
-       bikeButton.setOnClickListener(new OnClickListener() {
-           @Override
-           public void onClick(View view) {
-           	if (selectedSpots.getString("bike", null) == FALSE){
-       		  bikeSelect.setVisibility(View.VISIBLE);
-       		  editSelectedSpots.putString("bike", TRUE);
-           	  editSelectedSpots.commit();
-           	  counter++;
-       	  }else if (selectedSpots.getString("bike", null) == TRUE){
-       		  bikeSelect.setVisibility(View.GONE);
-       	      editSelectedSpots.putString("bike", FALSE);
-       	      editSelectedSpots.commit();
-       	      counter--;
-                 }
-           Toast.makeText(getApplicationContext(), Integer.toString(counter), Toast.LENGTH_LONG).show();
-           }
-         });
+        bikeButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            	  int black = R.drawable.ic_directions_bike_black_48dp;
+            	  int grey = R.drawable.ic_directions_bike_white_48dp;
+      		      pickCounter("bike",bikeSelect,bikeButton,black,grey);
+               }
+          });
+       
+        groceryButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            	  int black = R.drawable.ic_local_grocery_store_black_48dp;
+            	  int grey = R.drawable.ic_local_grocery_store_white_48dp;
+      		      pickCounter("grocery",grocerySelect,groceryButton,black,grey);
+               }
+          });
         
-       groceryButton.setOnClickListener(new OnClickListener() {
-           @Override
-           public void onClick(View view) {
-           	if (selectedSpots.getString("grocery", null) == FALSE){
-       		  grocerySelect.setVisibility(View.VISIBLE);
-       		  editSelectedSpots.putString("grocery", TRUE);
-           	  editSelectedSpots.commit();
-           	  counter++;
-       	  }else if (selectedSpots.getString("grocery", null) == TRUE){
-       		  grocerySelect.setVisibility(View.GONE);
-       	      editSelectedSpots.putString("grocery", FALSE);
-       	      editSelectedSpots.commit();
-       	      counter--;
-                 }
-           Toast.makeText(getApplicationContext(), Integer.toString(counter), Toast.LENGTH_LONG).show();
-           }
-         });
+        waterButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            	  int black = R.drawable.ic_directions_ferry_black_48dp;
+            	  int grey = R.drawable.ic_directions_ferry_white_48dp;
+      		      pickCounter("water",waterSelect,waterButton,black,grey);
+               }
+          });
+
+        hotelButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            	  int black = R.drawable.ic_hotel_black_48dp;
+            	  int grey = R.drawable.ic_hotel_white_48dp;
+      		      pickCounter("hotel",hotelSelect,hotelButton,black,grey);
+               }
+          });
         
-       waterButton.setOnClickListener(new OnClickListener() {
-           @Override
-           public void onClick(View view) {
-           	if (selectedSpots.getString("water", null) == FALSE){
-       		  waterSelect.setVisibility(View.VISIBLE);
-       		  editSelectedSpots.putString("water", TRUE);
-           	  editSelectedSpots.commit();
-           	  counter++;
-       	  }else if (selectedSpots.getString("water", null) == TRUE){
-       		  waterSelect.setVisibility(View.GONE);
-       	      editSelectedSpots.putString("water", FALSE);
-       	      editSelectedSpots.commit();
-       	      counter--;
-                 }
-           Toast.makeText(getApplicationContext(), Integer.toString(counter), Toast.LENGTH_LONG).show();
-           }
-         });
+        airportButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            	  int black = R.drawable.ic_flight_black_48dp;
+            	  int grey = R.drawable.ic_flight_white_48dp;
+      		      pickCounter("airport",airportSelect,airportButton,black,grey);
+               }
+          });
         
-       hotelButton.setOnClickListener(new OnClickListener() {
-           @Override
-           public void onClick(View view) {
-           	if (selectedSpots.getString("hotel", null) == FALSE){
-       		  hotelSelect.setVisibility(View.VISIBLE);
-       		  editSelectedSpots.putString("hotel", TRUE);
-           	  editSelectedSpots.commit();
-           	  counter++;
-       	  }else if (selectedSpots.getString("hotel", null) == TRUE){
-       		  hotelSelect.setVisibility(View.GONE);
-       	      editSelectedSpots.putString("hotel", FALSE);
-       	      editSelectedSpots.commit();
-       	      counter--;
-                 }
-           Toast.makeText(getApplicationContext(), Integer.toString(counter), Toast.LENGTH_LONG).show();
-           }
-         });
+        photoButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            	  int black = R.drawable.ic_local_see_black_48dp;
+            	  int grey = R.drawable.ic_local_see_white_48dp;
+      		      pickCounter("photo",photoSelect,photoButton,black,grey);
+               }
+          });
         
-       airportButton.setOnClickListener(new OnClickListener() {
-           @Override
-           public void onClick(View view) {
-           	if (selectedSpots.getString("airport", null) == FALSE){
-       		  airportSelect.setVisibility(View.VISIBLE);
-       		  editSelectedSpots.putString("airport", TRUE);
-           	  editSelectedSpots.commit();
-           	  counter++;
-       	  }else if (selectedSpots.getString("airport", null) == TRUE){
-       		  airportSelect.setVisibility(View.GONE);
-       	      editSelectedSpots.putString("airport", FALSE);
-       	      editSelectedSpots.commit();
-       	      counter--;
-                 }
-           Toast.makeText(getApplicationContext(), Integer.toString(counter), Toast.LENGTH_LONG).show();
-           }
-         });
+        libraryButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            	  int black = R.drawable.ic_local_library_black_48dp;
+            	  int grey = R.drawable.ic_local_library_white_48dp;
+      		      pickCounter("library",librarySelect,libraryButton,black,grey);
+               }
+          });
         
-       photoButton.setOnClickListener(new OnClickListener() {
-           @Override
-           public void onClick(View view) {
-           	if (selectedSpots.getString("photo", null) == FALSE){
-       		  photoSelect.setVisibility(View.VISIBLE);
-       		  editSelectedSpots.putString("photo", TRUE);
-           	  editSelectedSpots.commit();
-           	  counter++;
-       	  }else if (selectedSpots.getString("photo", null) == TRUE){
-       		  photoSelect.setVisibility(View.GONE);
-       	      editSelectedSpots.putString("photo", FALSE);
-       	      editSelectedSpots.commit();
-       	      counter--;
-                 }
-           Toast.makeText(getApplicationContext(), Integer.toString(counter), Toast.LENGTH_LONG).show();
-           }
-         });
+        natureButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            	  int black = R.drawable.ic_landscape_black_48dp;
+            	  int grey = R.drawable.ic_landscape_white_48dp;
+      		      pickCounter("nature",natureSelect,natureButton,black,grey);
+               }
+          });
         
-       libraryButton.setOnClickListener(new OnClickListener() {
-           @Override
-           public void onClick(View view) {
-           	if (selectedSpots.getString("library", null) == FALSE){
-       		  librarySelect.setVisibility(View.VISIBLE);
-       		  editSelectedSpots.putString("library", TRUE);
-           	  editSelectedSpots.commit();
-           	  counter++;
-       	  }else if (selectedSpots.getString("library", null) == TRUE){
-       		  librarySelect.setVisibility(View.GONE);
-       	      editSelectedSpots.putString("library", FALSE);
-       	      editSelectedSpots.commit();
-       	      counter--;
-                 }
-           Toast.makeText(getApplicationContext(), Integer.toString(counter), Toast.LENGTH_LONG).show();
-           }
-         });
-        
-       natureButton.setOnClickListener(new OnClickListener() {
-           @Override
-           public void onClick(View view) {
-           	if (selectedSpots.getString("nature", null) == FALSE){
-       		  natureSelect.setVisibility(View.VISIBLE);
-       		  editSelectedSpots.putString("nature", TRUE);
-           	  editSelectedSpots.commit();
-           	  counter++;
-       	  }else if (selectedSpots.getString("nature", null) == TRUE){
-       		  natureSelect.setVisibility(View.GONE);
-       	      editSelectedSpots.putString("nature", FALSE);
-       	      editSelectedSpots.commit();
-       	      counter--;
-                 }
-           Toast.makeText(getApplicationContext(), Integer.toString(counter), Toast.LENGTH_LONG).show();
-           }
-         });
-        
-       paintingButton.setOnClickListener(new OnClickListener() {
-           @Override
-           public void onClick(View view) {
-           	if (selectedSpots.getString("painting", null) == FALSE){
-       		  paintingSelect.setVisibility(View.VISIBLE);
-       		  editSelectedSpots.putString("painting", TRUE);
-           	  editSelectedSpots.commit();
-           	  counter++;
-       	  }else if (selectedSpots.getString("painting", null) == TRUE){
-       		  paintingSelect.setVisibility(View.GONE);
-       	      editSelectedSpots.putString("painting", FALSE);
-       	      editSelectedSpots.commit();
-       	      counter--;
-                 }
-           Toast.makeText(getApplicationContext(), Integer.toString(counter), Toast.LENGTH_LONG).show();
-           }
-         });
-        
+        paintingButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            	  int black = R.drawable.ic_palette_black_48dp;
+            	  int grey = R.drawable.ic_palette_white_48dp;
+      		      pickCounter("painting",paintingSelect,paintingButton,black,grey);
+            	  
+               }
+          });
+
       spotSubmit.setOnClickListener(new OnClickListener() {
           @Override
           public void onClick(View view) {
-        	//Toast.makeText(getApplicationContext(), "Start Loop Details Activity!", Toast.LENGTH_LONG).show();
         	  submitSpots();
           }
           });
@@ -351,23 +293,72 @@ public class CreateALoopActivity extends ActionBarActivity {
 		Intent intent = new Intent(this, BarDetailsActivity.class);
 		startActivity(intent);
 	}
+
 	
     private void pickCounter(String item,View view1,ImageButton view2,int black,int grey){
 
-        if (selectedSpots.getString(item, null) == FALSE){
-     		editSelectedSpots.putString(item, TRUE);
-           	editSelectedSpots.commit();
-           	view1.setVisibility(View.VISIBLE);
+        if (spotRanks.getInt(item, 0) == 0){
+     		editSpotRanks.putInt(item, counter);
+           	editSpotRanks.commit();
            	view2.setImageResource(grey);
+            view1.setVisibility(View.VISIBLE);
+            view1.setBackgroundResource(orderSpot(counter));
            	counter++;
-        }else if (selectedSpots.getString(item, null) == TRUE){
-   		  editSelectedSpots.putString(item, FALSE);
-       	  editSelectedSpots.commit();
+        }else {
+
        	  view1.setVisibility(View.GONE);
        	  view2.setImageResource(black);
-        	counter--;
+          setRanks(item);
+          refreshUI();
+   		  editSpotRanks.putInt(item, 0);
+       	  editSpotRanks.commit();
+          counter--;
+          
         }
         	
+    }
+    
+    private void setRanks(String item){
+    	for (int i=0;i<spots.length;i++){
+    		if (spotRanks.getInt(spots[i],0)>spotRanks.getInt(item,0)){
+    			editSpotRanks.putInt(spots[i],spotRanks.getInt(spots[i],0)-1 );
+    	       	  editSpotRanks.commit();
+    		}
+    	}
+    }
+    
+    private void refreshUI(){
+		drinksSelect.setBackgroundResource(orderSpot(spotRanks.getInt("drinks", 0)));
+		foodSelect.setBackgroundResource(orderSpot(spotRanks.getInt("food", 0))) ;
+		movieSelect.setBackgroundResource(orderSpot(spotRanks.getInt("movie", 0))) ;
+		bikeSelect.setBackgroundResource(orderSpot(spotRanks.getInt("bike", 0))) ;
+		grocerySelect.setBackgroundResource(orderSpot(spotRanks.getInt("grocery", 0))) ;
+		waterSelect.setBackgroundResource(orderSpot(spotRanks.getInt("water", 0))) ;
+		hotelSelect.setBackgroundResource(orderSpot(spotRanks.getInt("hotel", 0))) ;
+		airportSelect.setBackgroundResource(orderSpot(spotRanks.getInt("airport", 0))) ;
+		photoSelect.setBackgroundResource(orderSpot(spotRanks.getInt("photo", 0)));
+		librarySelect.setBackgroundResource(orderSpot(spotRanks.getInt("library", 0))) ;
+		natureSelect.setBackgroundResource(orderSpot(spotRanks.getInt("nature", 0))) ;
+		paintingSelect.setBackgroundResource(orderSpot(spotRanks.getInt("painting", 0))) ;
+    }
+    
+    private int orderSpot(int counter){
+    	switch (counter){
+    	case 0: return R.drawable.ic_launcher_1_red;
+    	case 1: return R.drawable.ic_launcher_1_red;
+    	case 2: return R.drawable.ic_launcher_2_red;
+      	case 3: return R.drawable.ic_launcher_3_red;
+      	case 4: return R.drawable.ic_launcher_4_red;
+      	case 5: return R.drawable.ic_launcher_5_red;
+      	case 6: return R.drawable.ic_launcher_6_red;
+      	case 7: return R.drawable.ic_launcher_7_red;
+      	case 8: return R.drawable.ic_launcher_8_red;
+      	case 9: return R.drawable.ic_launcher_9_red;
+      	case 10: return R.drawable.ic_launcher_10_red;
+      	case 11: return R.drawable.ic_launcher_11_red;
+      	case 12: return R.drawable.ic_launcher_12_red;
+      	default: return R.drawable.ic_launcher_1_red;
+    	}
     }
     
     @Override
