@@ -65,9 +65,17 @@
             android:label="@string/title_activity_bar" >
         </activity>
         <activity
-            android:name=".LoopDetailsActivity"
+            android:name=".BarDetailsActivity"
             android:label="@string/title_activity_loop_details" >
         </activity>
+        <activity
+            android:name=".EmailLoginActivity"
+            android:label="@string/title_activity_email_login"
+            android:windowSoftInputMode="adjustResize|stateVisible" >
+        </activity>
     </application>
+
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
 </manifest>
