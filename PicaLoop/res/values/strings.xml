@@ -19,7 +19,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_create_aloop">Select your spots !!</string>
     <string name="title_activity_bar">BarActivity</string>
-    <string name="Auto_Complete_Where_Text">Enter Location Name</string>
+    <string name="Location_Text">Enter Location Name</string>
     <string name="bar_icon">bar_icon</string>
     <string name="bar_image">bar_image</string>
     <string name="User_Comment">Comment</string>

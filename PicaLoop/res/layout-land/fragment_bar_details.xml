@@ -54,7 +54,7 @@
         android:layout_marginLeft="20dp"
         android:layout_toRightOf="@+id/baricon"
         android:ems="10"
-        android:hint="@string/Auto_Complete_Where_Text" >
+        android:hint="@string/Location_Text" >
 
         <requestFocus />
     </AutoCompleteTextView>

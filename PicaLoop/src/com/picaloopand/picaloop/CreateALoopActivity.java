@@ -1,19 +1,15 @@
 package com.picaloopand.picaloop;
 
-import android.R.integer;
-import android.R.string;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -352,7 +348,7 @@ public class CreateALoopActivity extends ActionBarActivity {
 	
 	private void submitSpots() {
 		//Toast.makeText(getApplicationContext(), "Google Sign in Clicked!", Toast.LENGTH_LONG).show();
-		Intent intent = new Intent(this, LoopDetailsActivity.class);
+		Intent intent = new Intent(this, BarDetailsActivity.class);
 		startActivity(intent);
 	}
 	

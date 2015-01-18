@@ -10,7 +10,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-public class LoopDetailsActivity extends ActionBarActivity {
+public class BarDetailsActivity extends ActionBarActivity {
 	
 	FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
@@ -27,23 +27,23 @@ public class LoopDetailsActivity extends ActionBarActivity {
 	       // Get the application instance
         app = (MyApplication)getApplication();
 		
-		setContentView(R.layout.activity_loop_details);
+		setContentView(R.layout.activity_bar_details);
 		
-		//displayDetailFragments();
+//	displayDetailFragments();
 		
 		  
 	}
 
-/*	public void displayDetailFragments(){
+	public void displayDetailFragments(){
 		// get fragment manager
 				 fragmentManager = getFragmentManager();
 				
 				 // add
 				 fragmentTransaction = fragmentManager.beginTransaction();
-				 fragmentTransaction.add(R.id.bar_fragment, new BarFragment());
+				 fragmentTransaction.add(R.id.bar_details, new LocationFragment());
 				 fragmentTransaction.commit();
 	}
-	*/
+	
     @Override
 	 public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

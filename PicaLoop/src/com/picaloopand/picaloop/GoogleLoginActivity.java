@@ -12,6 +12,7 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -56,6 +57,7 @@ OnConnectionFailedListener {
     protected MyApplication app;
     
     public static final String SIGN_IN_METHOD = "google";
+    
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -69,8 +71,6 @@ OnConnectionFailedListener {
         googlellProfileLayout = (LinearLayout) findViewById(R.id.googlellProfile);
         userProfile = getSharedPreferences("userProfile", MODE_PRIVATE);
         editProfile = userProfile.edit();
-        
-        
         // Get the application instance
        app = (MyApplication)getApplication();
         

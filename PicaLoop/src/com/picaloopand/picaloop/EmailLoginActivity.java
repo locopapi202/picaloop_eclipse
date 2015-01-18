@@ -91,6 +91,7 @@ public class EmailLoginActivity extends Activity implements
     	}
     	else{
 			setContentView(R.layout.activity_email_login);
+			getWindow().setBackgroundDrawableResource(R.drawable.loginsplash);
 			// Set up the login form.
 			mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
 			populateAutoComplete();
