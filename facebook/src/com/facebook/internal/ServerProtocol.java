@@ -16,16 +16,17 @@
 
 package com.facebook.internal;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.util.Log;
-import com.facebook.LoggingBehavior;
-import com.facebook.Settings;
+import java.util.Collection;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Collection;
-import java.util.EnumSet;
+import android.content.Context;
+import android.os.Bundle;
+import android.util.Log;
+
+import com.facebook.LoggingBehavior;
+import com.facebook.Settings;
 
 /**
  * com.facebook.internal is solely for the use of other packages within the Facebook SDK for Android. Use of

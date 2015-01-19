@@ -14,7 +14,6 @@ public class CommentFragment extends Fragment implements OnItemClickListener {
 	
 	View view;
 	
-
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {

@@ -69,12 +69,9 @@
             android:label="@string/title_activity_create_aloop" >
         </activity>
         <activity
-            android:name=".BarFragment"
-            android:label="@string/title_activity_bar" >
-        </activity>
-        <activity
             android:name=".BarDetailsActivity"
-            android:label="@string/title_activity_bar_details" >
+            android:label="@string/title_activity_bar_details" 
+            android:windowSoftInputMode="adjustPan|stateHidden">
         </activity>
         <activity
             android:name=".EmailLoginActivity"

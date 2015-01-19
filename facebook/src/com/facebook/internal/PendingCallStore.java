@@ -1,13 +1,13 @@
 package com.facebook.internal;
 
-import android.content.Context;
-import android.os.Bundle;
-import com.facebook.widget.FacebookDialog;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+
+import android.os.Bundle;
+
+import com.facebook.widget.FacebookDialog;
 
 /**
  * com.facebook.internal is solely for the use of other packages within the Facebook SDK for Android. Use of

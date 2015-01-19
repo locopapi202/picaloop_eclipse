@@ -7,6 +7,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.picaloopand.picaloop.LocationFragment" >
+    
 
     <AutoCompleteTextView
         android:id="@+id/locationautoComplete"
@@ -16,6 +17,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
         android:ems="10"
-        android:hint="@string/Location_Text" />
+        android:hint="@string/Location_Text"/>
 
 </RelativeLayout>

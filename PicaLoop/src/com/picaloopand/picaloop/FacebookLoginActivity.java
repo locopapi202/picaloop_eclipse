@@ -119,7 +119,7 @@ public class FacebookLoginActivity extends FragmentActivity {
     }
     
     private void updateUI() {
-        Session session = Session.getActiveSession();
+       // Session session = Session.getActiveSession();
        
 
         if (user != null) {

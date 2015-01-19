@@ -12,9 +12,7 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,7 +29,7 @@ OnConnectionFailedListener {
 	
     ImageView imgProfilePic;
     TextView googleName, googleEmail;
-    private LinearLayout googlellProfileLayout;
+    //private LinearLayout googlellProfileLayout;
 	//boolean googleLoginSignInClicked = true;
 	boolean googleLoginIntentInProgress;
 	// Google client to interact with Google API
@@ -68,7 +66,7 @@ OnConnectionFailedListener {
         imgProfilePic = (ImageView) findViewById(R.id.googleProfilePic);
         googleName = (TextView) findViewById(R.id.googleName);
         googleEmail = (TextView) findViewById(R.id.googleEmail);
-        googlellProfileLayout = (LinearLayout) findViewById(R.id.googlellProfile);
+      //  googlellProfileLayout = (LinearLayout) findViewById(R.id.googlellProfile);
         userProfile = getSharedPreferences("userProfile", MODE_PRIVATE);
         editProfile = userProfile.edit();
         // Get the application instance
@@ -96,10 +94,6 @@ OnConnectionFailedListener {
     }
 
 
-	private void openSettings() {
-		// TODO Auto-generated method stub
-		Toast.makeText(this, "settings menu clicked!", Toast.LENGTH_LONG).show();
-	}
 
 
 	/* A helper method to resolve the current ConnectionResult error. */
@@ -212,7 +206,7 @@ OnConnectionFailedListener {
 	            editProfile.putString("firstTime", "no");
 	            editProfile.commit();  
 	            
-	            Users user = new Users(personName, null, email, personPhotoUrl, SIGN_IN_METHOD);
+	            UsersDBTable user = new UsersDBTable(personName, null, null, null, email, personPhotoUrl, SIGN_IN_METHOD);
 	            user.save();
 	            
 	            googleName.setText(personName);

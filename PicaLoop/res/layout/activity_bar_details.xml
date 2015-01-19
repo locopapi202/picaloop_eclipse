@@ -9,6 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.picaloopand.picaloop.BarDetailsActivity" >
     
+  
    <fragment
         android:id="@+id/fragment1"
         android:name="com.picaloopand.picaloop.LocationFragment"

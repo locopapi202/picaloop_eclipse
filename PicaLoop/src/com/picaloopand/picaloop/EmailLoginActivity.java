@@ -78,13 +78,12 @@ public class EmailLoginActivity extends Activity implements
 			populateAutoComplete();
 	
 			mPasswordView = (EditText) findViewById(R.id.password);
-			Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
-			
+						
 			mLoginFormView = findViewById(R.id.login_form);
 			mProgressView = findViewById(R.id.login_progress);
 			
-			mProgressView.setVisibility(true ? View.VISIBLE : View.GONE);
-			mLoginFormView.setVisibility(true ? View.GONE : View.VISIBLE);
+			mProgressView.setVisibility(View.VISIBLE);
+			mLoginFormView.setVisibility(View.GONE);
 			
     		firstTime = false;
     		attemptLogin();
@@ -381,7 +380,7 @@ public class EmailLoginActivity extends Activity implements
 	            // editProfile.putString("userProfilePic", personPhotoUrl);
 	            editProfile.commit();
 	            
-	            Users user = new Users(mEmail, mPassword, mEmail, SIGN_IN_METHOD);
+	            UsersDBTable user = new UsersDBTable(mEmail, null, null, mPassword, mEmail, null, SIGN_IN_METHOD);
 	            user.save();
 
 			}
