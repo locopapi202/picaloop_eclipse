@@ -24,8 +24,15 @@
     <string name="bar_image">bar_image</string>
     <string name="User_Comment">Comment</string>
     <string name="barTextView">Click to Add your images</string>
-    <string name="title_activity_loop_details">LoopDetailsActivity</string>
+    <string name="title_activity_bar_details">BarDetailsActivity</string>
     <string name="loop_submit">Go</string>
     <string name="title_activity_loop_view">LoopViewActivity</string>
+    <string name="title_activity_news_feed">NewsFeedActivity</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="create_a_loop">Create A Loop</string>
 
 </resources>

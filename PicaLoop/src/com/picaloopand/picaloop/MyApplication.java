@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.widget.Toast;
 
+import com.activeandroid.ActiveAndroid;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 public class MyApplication extends android.app.Application {
@@ -17,6 +18,15 @@ public class MyApplication extends android.app.Application {
 
     public MyApplication() {
     	instance = this;
+    }
+    
+    @Override
+    public void onCreate() {
+        // TODO Auto-generated method stub
+        super.onCreate();
+        
+        //Notice this initialization code here
+        ActiveAndroid.initialize(this);
     }
 
     public static Context getContext() {

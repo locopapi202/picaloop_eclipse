@@ -380,6 +380,9 @@ public class EmailLoginActivity extends Activity implements
 	            editProfile.putString("userEmail", mEmail);
 	            // editProfile.putString("userProfilePic", personPhotoUrl);
 	            editProfile.commit();
+	            
+	            Users user = new Users(mEmail, mPassword, mEmail, SIGN_IN_METHOD);
+	            user.save();
 
 			}
 			
@@ -398,7 +401,7 @@ public class EmailLoginActivity extends Activity implements
 					editProfile.commit();
 				}
 			    Toast.makeText(getApplicationContext(), "User is connected!", Toast.LENGTH_LONG).show();
-				Intent intent = new Intent(getApplicationContext(), CreateALoopActivity.class);
+				Intent intent = new Intent(getApplicationContext(), NewsFeedActivity.class);
 				startActivity(intent);
 				finish();
 			} else {

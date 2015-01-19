@@ -25,6 +25,12 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="AA_DB_NAME"
+            android:value="PicaLoop.db" />
+        <meta-data
+            android:name="AA_DB_VERSION"
+            android:value="1" />
 
         <activity
             android:name=".WelcomeActivity"
@@ -68,15 +74,17 @@
         </activity>
         <activity
             android:name=".BarDetailsActivity"
-            android:label="@string/title_activity_loop_details" >
+            android:label="@string/title_activity_bar_details" >
         </activity>
         <activity
             android:name=".EmailLoginActivity"
             android:label="@string/title_activity_email_login"
             android:windowSoftInputMode="adjustResize|stateVisible" >
         </activity>
+        <activity
+            android:name=".NewsFeedActivity"
+            android:label="@string/title_activity_news_feed" >
+        </activity>
     </application>
-
-
 
 </manifest>

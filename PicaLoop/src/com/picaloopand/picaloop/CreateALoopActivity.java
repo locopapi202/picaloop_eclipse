@@ -360,7 +360,7 @@ public class CreateALoopActivity extends ActionBarActivity {
 	 public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 	    MenuInflater inflater = getMenuInflater();
-	    inflater.inflate(R.menu.actionbar_menu, menu);
+	    inflater.inflate(R.menu.create_loop_actionbar_menu, menu);
 	    return super.onCreateOptionsMenu(menu);
 
 	} 

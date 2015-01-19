@@ -170,7 +170,7 @@ OnConnectionFailedListener {
 	    // Get user's information
 	    getProfileInformation();
 	    
-	    Intent intent = new Intent(this, CreateALoopActivity.class);
+	    Intent intent = new Intent(this, NewsFeedActivity.class);
 		startActivity(intent);
 		finish();
 	 
@@ -211,6 +211,9 @@ OnConnectionFailedListener {
 	            editProfile.putString("userProfilePic", personPhotoUrl);
 	            editProfile.putString("firstTime", "no");
 	            editProfile.commit();  
+	            
+	            Users user = new Users(personName, null, email, personPhotoUrl, SIGN_IN_METHOD);
+	            user.save();
 	            
 	            googleName.setText(personName);
 	            googleEmail.setText(email);

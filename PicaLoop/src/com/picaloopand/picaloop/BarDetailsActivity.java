@@ -2,6 +2,7 @@ package com.picaloopand.picaloop;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -48,7 +49,7 @@ public class BarDetailsActivity extends ActionBarActivity {
 	 public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 	    MenuInflater inflater = getMenuInflater();
-	    inflater.inflate(R.menu.actionbar_menu, menu);
+	    inflater.inflate(R.menu.create_loop_actionbar_menu, menu);
 	    return super.onCreateOptionsMenu(menu);
 
 	} 
