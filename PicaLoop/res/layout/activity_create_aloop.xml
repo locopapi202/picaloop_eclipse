@@ -41,7 +41,7 @@
          android:layout_alignBottom="@+id/drinksButton"
          android:layout_alignRight="@+id/drinksButton"
          android:visibility="gone"
-          android:src="@drawable/ic_looks_one_black_48dp" />
+          android:background="@drawable/ic_launcher_1_red" />
     
     <ImageView
           android:id="@+id/foodSelect"
@@ -50,7 +50,7 @@
          android:layout_alignBottom="@+id/foodButton"
          android:layout_alignRight="@+id/foodButton"
          android:visibility="gone"
-          android:src="@drawable/ic_looks_one_black_48dp" />
+          android:background="@drawable/ic_launcher_1_red" />
           
     <ImageView
           android:id="@+id/movieSelect"
@@ -59,7 +59,7 @@
          android:layout_alignBottom="@+id/movieButton"
          android:layout_alignRight="@+id/movieButton"
          android:visibility="gone"
-          android:src="@drawable/ic_looks_one_black_48dp" />
+          android:background="@drawable/ic_launcher_1_red" />
 
       <ImageButton
           android:id="@+id/spotSubmit"
@@ -162,7 +162,7 @@
          android:layout_alignBottom="@+id/bikeButton"
          android:layout_alignRight="@+id/bikeButton"
          android:visibility="gone"
-         android:background="@drawable/ic_looks_one_black_48dp" />
+         android:background="@drawable/ic_launcher_1_red" />
           
       <ImageView
          android:id="@+id/grocerySelect"
@@ -171,7 +171,7 @@
          android:layout_alignBottom="@+id/groceryButton"
          android:layout_alignRight="@+id/groceryButton"
          android:visibility="gone"
-         android:src="@drawable/ic_looks_one_black_48dp" />
+         android:background="@drawable/ic_launcher_1_red" />
       
       <ImageView
          android:id="@+id/waterSelect"
@@ -180,7 +180,7 @@
          android:layout_alignBottom="@+id/waterButton"
          android:layout_alignRight="@+id/waterButton"
          android:visibility="gone"
-         android:src="@drawable/ic_looks_one_black_48dp" />
+         android:background="@drawable/ic_launcher_1_red" />
       
     <ImageView
          android:id="@+id/hotelSelect"
@@ -189,7 +189,7 @@
          android:layout_alignBottom="@+id/hotelButton"
          android:layout_alignRight="@+id/hotelButton"
          android:visibility="gone"
-         android:src="@drawable/ic_looks_one_black_48dp" />
+         android:background="@drawable/ic_launcher_1_red" />
      
      <ImageView
          android:id="@+id/airportSelect"
@@ -198,7 +198,7 @@
          android:layout_alignBottom="@+id/airportButton"
          android:layout_alignRight="@+id/airportButton"
          android:visibility="gone"
-         android:src="@drawable/ic_looks_one_black_48dp" />
+         android:background="@drawable/ic_launcher_1_red" />
           
       <ImageView
          android:id="@+id/photoSelect"
@@ -207,7 +207,7 @@
          android:layout_alignBottom="@+id/photoButton"
          android:layout_alignRight="@+id/photoButton"
          android:visibility="gone"
-         android:src="@drawable/ic_looks_one_black_48dp" />
+         android:background="@drawable/ic_launcher_1_red" />
 
      <ImageView
          android:id="@+id/librarySelect"
@@ -216,7 +216,7 @@
          android:layout_alignBottom="@+id/libraryButton"
          android:layout_alignRight="@+id/libraryButton"
          android:visibility="gone"
-         android:src="@drawable/ic_looks_one_black_48dp" />
+         android:background="@drawable/ic_launcher_1_red" />
      
      <ImageView
          android:id="@+id/natureSelect"
@@ -225,7 +225,7 @@
          android:layout_alignBottom="@+id/natureButton"
          android:layout_alignRight="@+id/natureButton"
          android:visibility="gone"
-         android:src="@drawable/ic_looks_one_black_48dp" />
+         android:background="@drawable/ic_launcher_1_red" />
           
       <ImageView
          android:id="@+id/paintingSelect"
@@ -234,7 +234,7 @@
          android:layout_alignBottom="@+id/paintingButton"
          android:layout_alignRight="@+id/paintingButton"
          android:visibility="gone"
-         android:src="@drawable/ic_looks_one_black_48dp" />
+         android:background="@drawable/ic_launcher_1_red" />
 
 
 
