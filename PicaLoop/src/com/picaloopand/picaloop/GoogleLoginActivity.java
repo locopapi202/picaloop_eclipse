@@ -63,9 +63,9 @@ OnConnectionFailedListener {
 
         setContentView(R.layout.activity_google_login);
         
-        imgProfilePic = (ImageView) findViewById(R.id.googleProfilePic);
-        googleName = (TextView) findViewById(R.id.googleName);
-        googleEmail = (TextView) findViewById(R.id.googleEmail);
+       // imgProfilePic = (ImageView) findViewById(R.id.googleProfilePic);
+       // googleName = (TextView) findViewById(R.id.googleName);
+      //  googleEmail = (TextView) findViewById(R.id.googleEmail);
       //  googlellProfileLayout = (LinearLayout) findViewById(R.id.googlellProfile);
         userProfile = getSharedPreferences("userProfile", MODE_PRIVATE);
         editProfile = userProfile.edit();
@@ -197,7 +197,14 @@ OnConnectionFailedListener {
 	                    + personGooglePlusProfile + ", email: " + email
 	                    + ", Image: " + personPhotoUrl);
 	 
-
+	            // by default the profile url gives 50x50 px image only
+	            // we can replace the value with whatever dimension we want by
+	            // replacing sz=X
+	            personPhotoUrl = personPhotoUrl.substring(0,
+	                    personPhotoUrl.length() - 2)
+	                    + PROFILE_PIC_SIZE;
+	            
+	            
 	            editProfile.clear();
 	            editProfile.putString("userSignIn", SIGN_IN_METHOD);
 	            editProfile.putString("userName", personName);
@@ -212,13 +219,7 @@ OnConnectionFailedListener {
 	            googleName.setText(personName);
 	            googleEmail.setText(email);
 	 
-	            // by default the profile url gives 50x50 px image only
-	            // we can replace the value with whatever dimension we want by
-	            // replacing sz=X
-	            personPhotoUrl = personPhotoUrl.substring(0,
-	                    personPhotoUrl.length() - 2)
-	                    + PROFILE_PIC_SIZE;
-	            
+            
 	            new LoadProfileImage(imgProfilePic).execute(personPhotoUrl);
 	 
 	        } else {

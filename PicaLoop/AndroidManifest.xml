@@ -61,7 +61,7 @@
             android:value="@string/facebook_app_id" />
 
         <activity
-            android:name=".UserProfileActivity"
+            android:name=".UserProfileFragment"
             android:label="@string/title_activity_user_profile" >
         </activity>
         <activity
@@ -70,8 +70,8 @@
         </activity>
         <activity
             android:name=".BarDetailsActivity"
-            android:label="@string/title_activity_bar_details" 
-            android:windowSoftInputMode="adjustPan|stateHidden">
+            android:label="@string/title_activity_bar_details"
+            android:windowSoftInputMode="adjustPan|stateHidden" >
         </activity>
         <activity
             android:name=".EmailLoginActivity"
@@ -81,6 +81,14 @@
         <activity
             android:name=".NewsFeedActivity"
             android:label="@string/title_activity_news_feed" >
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings" >
+        </activity>
+        <activity
+            android:name=".UserProfileActivity"
+            android:label="@string/title_activity_user_profile" >
         </activity>
     </application>
 

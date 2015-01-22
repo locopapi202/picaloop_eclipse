@@ -379,10 +379,10 @@ public class CreateALoopActivity extends ActionBarActivity {
 	        	//finish();
 	        	return true;
 	        case R.id.action_profile:
-	            openProfile();
+	            MyApplication.openProfile(app);
 	            return true;
 	        case R.id.action_settings:
-	            openSettings();
+	        	MyApplication.openSettings(app);
 	            return true;
 	        default:
 	            return super.onOptionsItemSelected(item);
@@ -390,21 +390,5 @@ public class CreateALoopActivity extends ActionBarActivity {
 
 	}
 
-	private void openSettings() {
-		// TODO Auto-generated method stub
-	//	Toast.makeText(getApplicationContext(), "Settings Clicked!", Toast.LENGTH_LONG).show();
 
-   
-	}
-
-	private void openProfile() {
-		// TODO Auto-generated method stub
-		Toast.makeText(getApplicationContext(), "Profile Clicked!", Toast.LENGTH_LONG).show();
-	}
-
-	/*private void signOut() {
-		// TODO Auto-generated method stub
-		//Toast.makeText(getApplicationContext(), "signOut Clicked!", Toast.LENGTH_LONG).show();
-		
-	}  */
 }

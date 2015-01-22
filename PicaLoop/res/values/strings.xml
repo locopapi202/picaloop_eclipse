@@ -9,7 +9,7 @@
     <string name="fbLogin_button">Sign in with Facebook</string>
     <string name="googleLogin_button">Sign in with Google</string>
     <string name="pclLogin_button">Sign in using email</string>
-    <string name="googlepic">googlepic</string>
+    <string name="profilepic">profilepic</string>
     <string name="title_activity_google_login">GoogleLoginActivity</string>
     <string name="title_activity_facebook_login">FacebookLoginActivity</string>
     <string name="facebook_app_id">396946067128069</string>

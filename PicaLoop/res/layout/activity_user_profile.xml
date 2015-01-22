@@ -6,45 +6,53 @@
     android:padding="16dp"
     tools:context="com.picaloopand.picaloop.UserProfileActivity" >
 
+   	<ProgressBar
+		android:id="@+id/progress"	
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center_horizontal"
+		android:visibility="gone"/>
+   
     <LinearLayout
-        android:id="@+id/googlellProfile"
+        android:id="@+id/Profile"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:orientation="horizontal"
-        android:weightSum="3"
-        android:visibility="gone">
-
+        android:weightSum="3">
  
-        <ImageView
-            android:id="@+id/googleProfilePic"
+   	    <ImageView
+	        android:id="@+id/ProfilePic"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:contentDescription="@string/googlepic"/>
- 
+            android:layout_weight="1"/>
+        	       
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:orientation="vertical"
-            android:layout_weight="2" >
- 
-            <TextView
-                android:id="@+id/googleName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:textSize="20sp" />
- 
-            <TextView
-                android:id="@+id/googleEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:textSize="18sp" />
-        </LinearLayout>
-    </LinearLayout>
-
-    
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="10dp"
+	        android:orientation="vertical"
+	        android:layout_weight="2" >
+	        <TextView
+	            android:id="@+id/userName"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:padding="5dp"
+	            android:textSize="20sp" />
+	
+	        <TextView
+	            android:id="@+id/userEmail"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:padding="5dp"
+	            android:textSize="18sp" />
+	        
+        	<TextView
+	            android:id="@+id/SignIn"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:padding="5dp"
+	            android:textSize="18sp" />
+		</LinearLayout>
+	</LinearLayout>
 </LinearLayout>

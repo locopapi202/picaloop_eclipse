@@ -108,29 +108,20 @@ public class NewsFeedActivity extends ActionBarActivity implements
 	        	//finish();
 	        	return true;
 	        case R.id.action_profile:
-	            openProfile();
+	        	MyApplication.openProfile(app);
 	            return true;
 	        case R.id.action_settings:
-	            openSettings();
+	        	MyApplication.openSettings(app);
 	            return true;
 	        case R.id.create_a_loop:
-        		Intent intent = new Intent(this, CreateALoopActivity.class);
-        		startActivity(intent);
+	        	MyApplication.createALoop(app);
+	        	return true;
 	        default:
 	            return super.onOptionsItemSelected(item);
 	    }
 
 	}
 
-	private void openSettings() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private void openProfile() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	/**
 	 * A placeholder fragment containing a simple view.
