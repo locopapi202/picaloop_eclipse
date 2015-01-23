@@ -38,14 +38,14 @@ public class MyApplication extends android.app.Application {
         Intent userProfileIntent = new Intent(app.getApplicationContext(), UserProfileActivity.class);
         userProfileIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
     	app.getApplicationContext().startActivity(userProfileIntent);
-    	Toast.makeText(app.getApplicationContext(), "open profile Clicked!", Toast.LENGTH_LONG).show();
+    	//Toast.makeText(app.getApplicationContext(), "open profile Clicked!", Toast.LENGTH_LONG).show();
     }
     
     public static void openSettings(MyApplication app){
     	
-       // Intent settingsIntent = new Intent(app.getApplicationContext(), SettingsActivity.class);
-     //   settingsIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-    	//app.getApplicationContext().startActivity(settingsIntent);
+        Intent settingsIntent = new Intent(app.getApplicationContext(), SettingsActivity.class);
+        settingsIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    	app.getApplicationContext().startActivity(settingsIntent);
         Toast.makeText(app.getApplicationContext(), "open settings Clicked!", Toast.LENGTH_LONG).show();
     }
     
