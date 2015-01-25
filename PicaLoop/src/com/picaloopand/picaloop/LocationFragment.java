@@ -73,7 +73,8 @@ public class LocationFragment extends Fragment implements OnItemClickListener {
 	    try {
 	        StringBuilder sb = new StringBuilder(PLACES_API_BASE + TYPE_AUTOCOMPLETE + OUT_JSON);
 	        sb.append("?key=" + API_KEY);
-	        sb.append("&components=country:us");
+	        sb.append("&components=country:us"); //- USA
+	        //sb.append("&components=country:ro"); //- Romania
 	        sb.append("&input=" + URLEncoder.encode(input, "utf8"));
 
 	        URL url = new URL(sb.toString());

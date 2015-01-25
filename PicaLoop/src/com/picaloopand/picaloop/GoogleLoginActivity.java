@@ -134,11 +134,10 @@ OnConnectionFailedListener {
 		                0).show();
 				editProfile.putString("userSignIn", null);
 				editProfile.commit();
-			    Intent intent = new Intent(this, WelcomeActivity.class);
-				startActivity(intent);
-				finish();
-
-		       // return;
+			   //Intent intent = new Intent(this, WelcomeActivity.class);
+				//startActivity(intent);
+				
+		        return;
 		    }
 		  if (!googleLoginIntentInProgress) {
 		    // Store the ConnectionResult so that we can use it later when the user clicks
