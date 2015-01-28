@@ -3,51 +3,34 @@
     android:id="@+id/bar_details"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.picaloopand.picaloop.BarDetailsActivity" >
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="vertical" >
-        
-            <fragment
+    <fragment
         android:id="@+id/fragment1"
         android:name="com.picaloopand.picaloop.LocationFragment"
-        android:layout_width="149dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="3dp" />
-            
-               <fragment
-       android:id="@+id/fragment3"
-       android:name="com.picaloopand.picaloop.CommentFragment"
-       android:layout_width="208dp"
-       android:layout_height="wrap_content"
-       android:layout_marginTop="3dp" />
-            
-            
-    </LinearLayout>
+        android:layout_marginTop="0dp" />
 
-   <ScrollView
-       android:id="@+id/bardetailsscroll"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_marginTop="3dp">
-               
-       
-   <fragment
-       android:id="@+id/fragment2"
-       android:name="com.picaloopand.picaloop.LoadMediaFragment"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_marginTop="1dp" />
-   </ScrollView>
+    <fragment
+        android:id="@+id/fragment2"
+        android:name="com.picaloopand.picaloop.LoadMediaFragmentGrid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:layout_weight="0.34" />
 
-
-
+    <fragment
+        android:id="@+id/fragment3"
+        android:name="com.picaloopand.picaloop.CommentFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_weight="0.07" />
 
 </LinearLayout>
