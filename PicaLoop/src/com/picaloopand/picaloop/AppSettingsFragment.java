@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-//Comment for pull sample
+
 
 public class AppSettingsFragment extends Fragment {
 
