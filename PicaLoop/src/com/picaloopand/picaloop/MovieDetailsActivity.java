@@ -2,20 +2,49 @@ package com.picaloopand.picaloop;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.Toast;
 
-public class BarDetailsActivity extends ActionBarActivity {
+public class MovieDetailsActivity extends ActionBarActivity {
 	
 	FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
     
     SharedPreferences userProfile;
+    SharedPreferences spotRanks;
+    public static Editor editSpotRanks;
+    
+    
+	String StringProjectName = "com.picaloopand.picaloop.";
+	String StingPartialActivityName = "DetailsActivity";
+	String StringSpotName= "Drinks";
+	
+	
+    private String[] spots = {
+            "Drinks",
+            "Food",
+            "Movie",
+            "Bike",
+            "Grocery",
+            "Water",
+            "Hotel",
+            "Airport",
+            "Photo",
+            "Library",
+            "Nature",
+            "Painting"
+        };
+    public Button spotSubmit ;
     
 	protected MyApplication app;
 
@@ -24,14 +53,52 @@ public class BarDetailsActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		
 		userProfile = getSharedPreferences("userProfile", MODE_PRIVATE);
+		spotRanks = getSharedPreferences("spotRanks", MODE_PRIVATE);
+		editSpotRanks = spotRanks.edit();
 	       // Get the application instance
         app = (MyApplication)getApplication();
 		
-		setContentView(R.layout.activity_bar_details);
-		
+		setContentView(R.layout.activity_movie_details);
+		 spotSubmit = (Button) findViewById(R.id.spotSubmit);
 //	displayDetailFragments();
 		
+	      spotSubmit.setOnClickListener(new OnClickListener() {
+	          @Override
+	          public void onClick(View view) {
+	        	  try {
+					submitSpots();
+				} catch (ClassNotFoundException e) {
+					Toast.makeText(getApplicationContext(), "Class not found!", Toast.LENGTH_LONG).show();
+					e.printStackTrace();
+				}
+	          }
+	          });
 		  
+	}
+	
+	private void submitSpots() throws ClassNotFoundException {
+		
+		Class<?> dummyClass = null;
+    	for (int i=0;i<spots.length;i++){
+    		if (spotRanks.getInt(spots[i],0) == spotRanks.getInt("Movie",0) + 1){
+                StringSpotName = spots[i];
+                //Toast.makeText(getApplicationContext(), spots[i], Toast.LENGTH_LONG).show();
+    		}
+    	}
+		
+		int pageCount = spotRanks.getInt("PageCount", 0);
+		if ( pageCount == spotRanks.getInt("Counter", 0)  ){
+			dummyClass = LoopDetailsViewActivity.class;
+		}else {
+			pageCount++;
+	     	editSpotRanks.putInt("PageCount", pageCount);
+	     	editSpotRanks.commit();
+			dummyClass = Class.forName(StringProjectName+StringSpotName+StingPartialActivityName);
+		}
+		
+		
+		Intent intent = new Intent(this, dummyClass);
+		startActivity(intent);
 	}
 
 	public void displayDetailFragments(){
@@ -40,7 +107,7 @@ public class BarDetailsActivity extends ActionBarActivity {
 				
 				 // add
 				 fragmentTransaction = fragmentManager.beginTransaction();
-				 fragmentTransaction.add(R.id.bar_details, new LocationFragment());
+				 fragmentTransaction.add(R.id.food_details, new LocationFragment());
 				 fragmentTransaction.commit();
 	}
 	

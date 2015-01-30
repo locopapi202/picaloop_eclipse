@@ -67,16 +67,35 @@
             android:label="@string/title_activity_bar" >
         </activity>
         <activity
-            android:name=".BarDetailsActivity"
-            android:label="@string/title_activity_loop_details" >
+            android:name=".DrinksDetailsActivity"
+            android:label="@string/title_bar"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name=".FoodDetailsActivity"
+            android:label="@string/title_food" >
+        </activity>
+        <activity
+            android:name=".MovieDetailsActivity"
+            android:label="@string/title_movie" >
         </activity>
         <activity
             android:name=".EmailLoginActivity"
             android:label="@string/title_activity_email_login"
             android:windowSoftInputMode="adjustResize|stateVisible" >
         </activity>
+        <activity
+            android:name=".LoopDetailViewActivity"
+            android:label="@string/title_activity_loop_detail_view" >
+        </activity>
+        <activity
+            android:name=".LoopDetailsViewActivity"
+            android:label="@string/title_activity_loop_details_view" >
+        </activity>
+        <activity
+            android:name=".ImageAdapter"
+            android:label="@string/title_activity_image_adapter" >
+        </activity>
     </application>
-
-
 
 </manifest>

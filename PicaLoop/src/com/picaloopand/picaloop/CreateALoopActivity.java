@@ -23,6 +23,12 @@ public class CreateALoopActivity extends ActionBarActivity {
 		
 	SharedPreferences selectedSpots;
 	SharedPreferences spotRanks;
+	
+	String StringProjectName = "com.picaloopand.picaloop.";
+	String StingPartialActivityName = "DetailsActivity";
+	
+	String StringSpotName= "Drinks";
+	
     public static Editor editSelectedSpots;
     public static Editor editSpotRanks;
     public static final String TRUE = "TRUE";
@@ -32,18 +38,18 @@ public class CreateALoopActivity extends ActionBarActivity {
     int counter = 1;
     int drinkStatus = 0;
     private String[] spots = {
-            "drinks",
-            "food",
-            "movie",
-            "bike",
-            "grocery",
-            "water",
-            "hotel",
-            "airport",
-            "photo",
-            "library",
-            "nature",
-            "painting"
+            "Drinks",
+            "Food",
+            "Movie",
+            "Bike",
+            "Grocery",
+            "Water",
+            "Hotel",
+            "Airport",
+            "Photo",
+            "Library",
+            "Nature",
+            "Painting"
         };
     
 
@@ -112,18 +118,20 @@ public class CreateALoopActivity extends ActionBarActivity {
         editSelectedSpots.putString("nature", FALSE);
         editSelectedSpots.putString("painting", FALSE);
         editSelectedSpots.commit();
-        editSpotRanks.putInt("drinks", 0);
-        editSpotRanks.putInt("food", 0);
-        editSpotRanks.putInt("movie", 0);
-        editSpotRanks.putInt("bike", 0);
-        editSpotRanks.putInt("grocery", 0);
-        editSpotRanks.putInt("water", 0);
-        editSpotRanks.putInt("hotel", 0);
-        editSpotRanks.putInt("airport", 0);
-        editSpotRanks.putInt("photo", 0);
-        editSpotRanks.putInt("library", 0);
-        editSpotRanks.putInt("nature", 0);
-        editSpotRanks.putInt("painting", 0);
+        editSpotRanks.putInt("Drinks", 0);
+        editSpotRanks.putInt("Food", 0);
+        editSpotRanks.putInt("Movie", 0);
+        editSpotRanks.putInt("Bike", 0);
+        editSpotRanks.putInt("Grocery", 0);
+        editSpotRanks.putInt("Water", 0);
+        editSpotRanks.putInt("Hotel", 0);
+        editSpotRanks.putInt("Airport", 0);
+        editSpotRanks.putInt("Photo", 0);
+        editSpotRanks.putInt("Library", 0);
+        editSpotRanks.putInt("Nature", 0);
+        editSpotRanks.putInt("Painting", 0);
+        editSpotRanks.putInt("Count",0);
+        editSpotRanks.putInt("PageCount",0);
         editSpotRanks.commit();
         
         
@@ -171,7 +179,7 @@ public class CreateALoopActivity extends ActionBarActivity {
             public void onClick(View view) {
             	  int black = R.drawable.ic_local_bar_black_48dp;
             	  int grey = R.drawable.ic_local_bar_white_48dp;
-      		      pickCounter("drinks",drinksSelect,drinksButton,black,grey);
+      		      pickCounter("Drinks",drinksSelect,drinksButton,black,grey);
                }
           });
         
@@ -180,7 +188,7 @@ public class CreateALoopActivity extends ActionBarActivity {
             public void onClick(View view) {
             	  int black = R.drawable.ic_local_restaurant_black_48dp;
             	  int grey = R.drawable.ic_local_restaurant_white_48dp;
-      		      pickCounter("food",foodSelect,foodButton,black,grey);
+      		      pickCounter("Food",foodSelect,foodButton,black,grey);
                }
           });
        
@@ -189,7 +197,7 @@ public class CreateALoopActivity extends ActionBarActivity {
             public void onClick(View view) {
             	  int black = R.drawable.ic_local_movies_black_48dp;
             	  int grey = R.drawable.ic_local_movies_white_48dp;
-      		      pickCounter("movie",movieSelect,movieButton,black,grey);
+      		      pickCounter("Movie",movieSelect,movieButton,black,grey);
                }
           });
         
@@ -198,7 +206,7 @@ public class CreateALoopActivity extends ActionBarActivity {
             public void onClick(View view) {
             	  int black = R.drawable.ic_directions_bike_black_48dp;
             	  int grey = R.drawable.ic_directions_bike_white_48dp;
-      		      pickCounter("bike",bikeSelect,bikeButton,black,grey);
+      		      pickCounter("Bike",bikeSelect,bikeButton,black,grey);
                }
           });
        
@@ -207,7 +215,7 @@ public class CreateALoopActivity extends ActionBarActivity {
             public void onClick(View view) {
             	  int black = R.drawable.ic_local_grocery_store_black_48dp;
             	  int grey = R.drawable.ic_local_grocery_store_white_48dp;
-      		      pickCounter("grocery",grocerySelect,groceryButton,black,grey);
+      		      pickCounter("Grocery",grocerySelect,groceryButton,black,grey);
                }
           });
         
@@ -216,7 +224,7 @@ public class CreateALoopActivity extends ActionBarActivity {
             public void onClick(View view) {
             	  int black = R.drawable.ic_directions_ferry_black_48dp;
             	  int grey = R.drawable.ic_directions_ferry_white_48dp;
-      		      pickCounter("water",waterSelect,waterButton,black,grey);
+      		      pickCounter("Water",waterSelect,waterButton,black,grey);
                }
           });
 
@@ -225,7 +233,7 @@ public class CreateALoopActivity extends ActionBarActivity {
             public void onClick(View view) {
             	  int black = R.drawable.ic_hotel_black_48dp;
             	  int grey = R.drawable.ic_hotel_white_48dp;
-      		      pickCounter("hotel",hotelSelect,hotelButton,black,grey);
+      		      pickCounter("Hotel",hotelSelect,hotelButton,black,grey);
                }
           });
         
@@ -234,7 +242,7 @@ public class CreateALoopActivity extends ActionBarActivity {
             public void onClick(View view) {
             	  int black = R.drawable.ic_flight_black_48dp;
             	  int grey = R.drawable.ic_flight_white_48dp;
-      		      pickCounter("airport",airportSelect,airportButton,black,grey);
+      		      pickCounter("Airport",airportSelect,airportButton,black,grey);
                }
           });
         
@@ -243,7 +251,7 @@ public class CreateALoopActivity extends ActionBarActivity {
             public void onClick(View view) {
             	  int black = R.drawable.ic_local_see_black_48dp;
             	  int grey = R.drawable.ic_local_see_white_48dp;
-      		      pickCounter("photo",photoSelect,photoButton,black,grey);
+      		      pickCounter("Photo",photoSelect,photoButton,black,grey);
                }
           });
         
@@ -252,7 +260,7 @@ public class CreateALoopActivity extends ActionBarActivity {
             public void onClick(View view) {
             	  int black = R.drawable.ic_local_library_black_48dp;
             	  int grey = R.drawable.ic_local_library_white_48dp;
-      		      pickCounter("library",librarySelect,libraryButton,black,grey);
+      		      pickCounter("Library",librarySelect,libraryButton,black,grey);
                }
           });
         
@@ -261,7 +269,7 @@ public class CreateALoopActivity extends ActionBarActivity {
             public void onClick(View view) {
             	  int black = R.drawable.ic_landscape_black_48dp;
             	  int grey = R.drawable.ic_landscape_white_48dp;
-      		      pickCounter("nature",natureSelect,natureButton,black,grey);
+      		      pickCounter("Nature",natureSelect,natureButton,black,grey);
                }
           });
         
@@ -270,7 +278,7 @@ public class CreateALoopActivity extends ActionBarActivity {
             public void onClick(View view) {
             	  int black = R.drawable.ic_palette_black_48dp;
             	  int grey = R.drawable.ic_palette_white_48dp;
-      		      pickCounter("painting",paintingSelect,paintingButton,black,grey);
+      		      pickCounter("Painting",paintingSelect,paintingButton,black,grey);
             	  
                }
           });
@@ -278,20 +286,37 @@ public class CreateALoopActivity extends ActionBarActivity {
       spotSubmit.setOnClickListener(new OnClickListener() {
           @Override
           public void onClick(View view) {
-        	  submitSpots();
+        	  try {
+				submitSpots();
+			} catch (ClassNotFoundException e) {
+				Toast.makeText(getApplicationContext(), "Class not found!", Toast.LENGTH_LONG).show();
+				e.printStackTrace();
+			}
           }
           });
 	}
 	
-	private void submitSpots() {
-		//Toast.makeText(getApplicationContext(), "Google Sign in Clicked!", Toast.LENGTH_LONG).show();
-		Intent intent = new Intent(this, BarDetailsActivity.class);
+
+	private void submitSpots() throws ClassNotFoundException {
+		
+		Class<?> dummyClass = null;
+    	for (int i=0;i<spots.length;i++){
+    		if (spotRanks.getInt(spots[i],0) == 1){
+                StringSpotName = spots[i];
+                //Toast.makeText(getApplicationContext(), spots[i], Toast.LENGTH_LONG).show();
+    		}
+    	}
+    	editSpotRanks.putInt("Counter", counter);
+     	editSpotRanks.commit();
+     	editSpotRanks.putInt("PageCount", 2);
+     	editSpotRanks.commit();
+		dummyClass = Class.forName(StringProjectName+StringSpotName+StingPartialActivityName);
+		Intent intent = new Intent(this, dummyClass);
+		Toast.makeText(getApplicationContext(), Integer.toString(counter), Toast.LENGTH_LONG).show();
 		startActivity(intent);
 	}
-
 	
     private void pickCounter(String item,View view1,ImageButton view2,int black,int grey){
-
         if (spotRanks.getInt(item, 0) == 0){
      		editSpotRanks.putInt(item, counter);
            	editSpotRanks.commit();
@@ -300,7 +325,6 @@ public class CreateALoopActivity extends ActionBarActivity {
             view1.setBackgroundResource(orderSpot(counter));
            	counter++;
         }else {
-
        	  view1.setVisibility(View.GONE);
        	  view2.setImageResource(black);
           setRanks(item);
@@ -323,18 +347,18 @@ public class CreateALoopActivity extends ActionBarActivity {
     }
     
     private void refreshUI(){
-		drinksSelect.setBackgroundResource(orderSpot(spotRanks.getInt("drinks", 0)));
-		foodSelect.setBackgroundResource(orderSpot(spotRanks.getInt("food", 0))) ;
-		movieSelect.setBackgroundResource(orderSpot(spotRanks.getInt("movie", 0))) ;
-		bikeSelect.setBackgroundResource(orderSpot(spotRanks.getInt("bike", 0))) ;
-		grocerySelect.setBackgroundResource(orderSpot(spotRanks.getInt("grocery", 0))) ;
-		waterSelect.setBackgroundResource(orderSpot(spotRanks.getInt("water", 0))) ;
-		hotelSelect.setBackgroundResource(orderSpot(spotRanks.getInt("hotel", 0))) ;
-		airportSelect.setBackgroundResource(orderSpot(spotRanks.getInt("airport", 0))) ;
-		photoSelect.setBackgroundResource(orderSpot(spotRanks.getInt("photo", 0)));
-		librarySelect.setBackgroundResource(orderSpot(spotRanks.getInt("library", 0))) ;
-		natureSelect.setBackgroundResource(orderSpot(spotRanks.getInt("nature", 0))) ;
-		paintingSelect.setBackgroundResource(orderSpot(spotRanks.getInt("painting", 0))) ;
+		drinksSelect.setBackgroundResource(orderSpot(spotRanks.getInt("Drinks", 0)));
+		foodSelect.setBackgroundResource(orderSpot(spotRanks.getInt("Food", 0))) ;
+		movieSelect.setBackgroundResource(orderSpot(spotRanks.getInt("Movie", 0))) ;
+		bikeSelect.setBackgroundResource(orderSpot(spotRanks.getInt("Bike", 0))) ;
+		grocerySelect.setBackgroundResource(orderSpot(spotRanks.getInt("Grocery", 0))) ;
+		waterSelect.setBackgroundResource(orderSpot(spotRanks.getInt("Water", 0))) ;
+		hotelSelect.setBackgroundResource(orderSpot(spotRanks.getInt("Hotel", 0))) ;
+		airportSelect.setBackgroundResource(orderSpot(spotRanks.getInt("Airport", 0))) ;
+		photoSelect.setBackgroundResource(orderSpot(spotRanks.getInt("Photo", 0)));
+		librarySelect.setBackgroundResource(orderSpot(spotRanks.getInt("Library", 0))) ;
+		natureSelect.setBackgroundResource(orderSpot(spotRanks.getInt("Nature", 0))) ;
+		paintingSelect.setBackgroundResource(orderSpot(spotRanks.getInt("Painting", 0))) ;
     }
     
     private int orderSpot(int counter){
