@@ -34,6 +34,9 @@ public class UserProfileActivity extends ActionBarActivity {
 		
 		aq = new AQuery(this);
 		setContentView(R.layout.activity_user_profile);
+	       // enabling action bar app icon and behaving it as toggle button
+	       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+	       getSupportActionBar().setHomeButtonEnabled(true);
 		
 		userName = (TextView) findViewById(R.id.userName);
 		userEmail = (TextView) findViewById(R.id.userEmail);
@@ -99,8 +102,8 @@ public class UserProfileActivity extends ActionBarActivity {
 	        case R.id.action_settings:
 	        	 MyApplication.openSettings(app);
 	            return true;
-	        case R.id.create_a_loop:
-	        	MyApplication.createALoop(app);
+	        case R.id.action_search:
+	        	MyApplication.search(app);
 	        	return true;
 	        default:
 	            return super.onOptionsItemSelected(item);

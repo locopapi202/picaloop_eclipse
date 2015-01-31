@@ -131,6 +131,9 @@ public class CreateALoopActivity extends ActionBarActivity {
         app = (MyApplication)getApplication();
 		
 		setContentView(R.layout.activity_create_aloop);
+	       // enabling action bar app icon and behaving it as toggle button
+	       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+	       getSupportActionBar().setHomeButtonEnabled(true);
 		
         // Initializing google plus api client
         mGoogleApiClient = new GoogleApiClient.Builder(this)

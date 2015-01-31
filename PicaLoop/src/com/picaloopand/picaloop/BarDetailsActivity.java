@@ -29,6 +29,10 @@ public class BarDetailsActivity extends ActionBarActivity {
 		
 		setContentView(R.layout.activity_bar_details);
 		
+	       // enabling action bar app icon and behaving it as toggle button
+	       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+	       getSupportActionBar().setHomeButtonEnabled(true);
+		
 //	displayDetailFragments();
 		
 		  
@@ -71,6 +75,9 @@ public class BarDetailsActivity extends ActionBarActivity {
 	            return true;
 	        case R.id.action_settings:
 	        	MyApplication.openSettings(app);
+	            return true;
+	        case R.id.action_search:
+	        	MyApplication.search(app);
 	            return true;
 	        default:
 	            return super.onOptionsItemSelected(item);

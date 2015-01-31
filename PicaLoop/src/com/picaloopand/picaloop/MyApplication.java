@@ -41,6 +41,10 @@ public class MyApplication extends android.app.Application {
     	//Toast.makeText(app.getApplicationContext(), "open profile Clicked!", Toast.LENGTH_LONG).show();
     }
     
+    public static void search(MyApplication app){
+        Toast.makeText(app.getApplicationContext(), "Search Coming Soon!!", Toast.LENGTH_LONG).show();
+    }
+    
     public static void openSettings(MyApplication app){
     	
         Intent settingsIntent = new Intent(app.getApplicationContext(), SettingsActivity.class);

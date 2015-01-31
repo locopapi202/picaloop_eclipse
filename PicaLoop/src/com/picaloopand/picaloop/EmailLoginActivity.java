@@ -406,7 +406,7 @@ public class EmailLoginActivity extends Activity implements
 					editProfile.commit();
 				}
 			    Toast.makeText(getApplicationContext(), "User is connected!", Toast.LENGTH_LONG).show();
-				Intent intent = new Intent(getApplicationContext(), NewsFeedActivity.class);
+				Intent intent = new Intent(getApplicationContext(), LoopFeedActivity.class);
 				startActivity(intent);
 				finish();
 			} else {

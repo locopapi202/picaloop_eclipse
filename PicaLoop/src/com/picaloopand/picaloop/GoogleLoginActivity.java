@@ -163,7 +163,7 @@ OnConnectionFailedListener {
 	    // Get user's information
 	    getProfileInformation();
 	    
-	    Intent intent = new Intent(this, NewsFeedActivity.class);
+	    Intent intent = new Intent(this, LoopFeedActivity.class);
 		startActivity(intent);
 		finish();
 	 
