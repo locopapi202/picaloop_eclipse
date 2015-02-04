@@ -24,7 +24,6 @@ public class MovieDetailsActivity extends ActionBarActivity {
     SharedPreferences spotRanks;
     public static Editor editSpotRanks;
     
-    
 	String StringProjectName = "com.picaloopand.picaloop.";
 	String StingPartialActivityName = "DetailsActivity";
 	String StringSpotName= "Drinks";

@@ -125,28 +125,29 @@ public class DrinksDetailsActivity extends ActionBarActivity {
 	
 	
     @Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		
-		// Handle presses on the action bar items
-	    switch (item.getItemId()) {
-	        case R.id.action_signoff:
-	        	MyApplication.signOut(app, userProfile);
-	        	//finish();
-	        	return true;
-	        case R.id.action_profile:
-	            openProfile();
-	            return true;
-	        case R.id.action_settings:
-	            openSettings();
-	            return true;
-	        default:
-	            return super.onOptionsItemSelected(item);
-	    }
+   	public boolean onOptionsItemSelected(MenuItem item) {
+   		// Handle action bar item clicks here. The action bar will
+   		// automatically handle clicks on the Home/Up button, so long
+   		// as you specify a parent activity in AndroidManifest.xml.
+   		
+   		// Handle presses on the action bar items
+   	    switch (item.getItemId()) {
+   	        case R.id.action_signoff:
+   	        	MyApplication.signOut(app, userProfile);
+   	        	//finish();
+   	        	return true;
+   	        case R.id.action_profile:
+   	        	MyApplication.openProfile(app);
+   	            return true;
+   	        case R.id.action_settings:
+   	        	MyApplication.openSettings(app);
+   	            return true;
+   	        default:
+   	            return super.onOptionsItemSelected(item);
+   	    }
 
-	}
+   	}
+
 
 	private void openSettings() {
 		// TODO Auto-generated method stub

@@ -12,9 +12,7 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,7 +29,7 @@ OnConnectionFailedListener {
 	
     ImageView imgProfilePic;
     TextView googleName, googleEmail;
-    private LinearLayout googlellProfileLayout;
+    //private LinearLayout googlellProfileLayout;
 	//boolean googleLoginSignInClicked = true;
 	boolean googleLoginIntentInProgress;
 	// Google client to interact with Google API
@@ -65,10 +63,10 @@ OnConnectionFailedListener {
 
         setContentView(R.layout.activity_google_login);
         
-        imgProfilePic = (ImageView) findViewById(R.id.googleProfilePic);
-        googleName = (TextView) findViewById(R.id.googleName);
-        googleEmail = (TextView) findViewById(R.id.googleEmail);
-        googlellProfileLayout = (LinearLayout) findViewById(R.id.googlellProfile);
+       // imgProfilePic = (ImageView) findViewById(R.id.googleProfilePic);
+       // googleName = (TextView) findViewById(R.id.googleName);
+      //  googleEmail = (TextView) findViewById(R.id.googleEmail);
+      //  googlellProfileLayout = (LinearLayout) findViewById(R.id.googlellProfile);
         userProfile = getSharedPreferences("userProfile", MODE_PRIVATE);
         editProfile = userProfile.edit();
         // Get the application instance
@@ -96,10 +94,6 @@ OnConnectionFailedListener {
     }
 
 
-	private void openSettings() {
-		// TODO Auto-generated method stub
-		Toast.makeText(this, "settings menu clicked!", Toast.LENGTH_LONG).show();
-	}
 
 
 	/* A helper method to resolve the current ConnectionResult error. */
@@ -140,11 +134,10 @@ OnConnectionFailedListener {
 		                0).show();
 				editProfile.putString("userSignIn", null);
 				editProfile.commit();
-			    Intent intent = new Intent(this, WelcomeActivity.class);
-				startActivity(intent);
-				finish();
-
-		       // return;
+			   //Intent intent = new Intent(this, WelcomeActivity.class);
+				//startActivity(intent);
+				
+		        return;
 		    }
 		  if (!googleLoginIntentInProgress) {
 		    // Store the ConnectionResult so that we can use it later when the user clicks
@@ -170,7 +163,7 @@ OnConnectionFailedListener {
 	    // Get user's information
 	    getProfileInformation();
 	    
-	    Intent intent = new Intent(this, CreateALoopActivity.class);
+	    Intent intent = new Intent(this, NewsFeedActivity.class);
 		startActivity(intent);
 		finish();
 	 
@@ -203,7 +196,14 @@ OnConnectionFailedListener {
 	                    + personGooglePlusProfile + ", email: " + email
 	                    + ", Image: " + personPhotoUrl);
 	 
-
+	            // by default the profile url gives 50x50 px image only
+	            // we can replace the value with whatever dimension we want by
+	            // replacing sz=X
+	            personPhotoUrl = personPhotoUrl.substring(0,
+	                    personPhotoUrl.length() - 2)
+	                    + PROFILE_PIC_SIZE;
+	            
+	            
 	            editProfile.clear();
 	            editProfile.putString("userSignIn", SIGN_IN_METHOD);
 	            editProfile.putString("userName", personName);
@@ -212,16 +212,13 @@ OnConnectionFailedListener {
 	            editProfile.putString("firstTime", "no");
 	            editProfile.commit();  
 	            
+	            UsersDBTable user = new UsersDBTable(personName, null, null, null, email, personPhotoUrl, SIGN_IN_METHOD);
+	            user.save();
+	            
 	            googleName.setText(personName);
 	            googleEmail.setText(email);
 	 
-	            // by default the profile url gives 50x50 px image only
-	            // we can replace the value with whatever dimension we want by
-	            // replacing sz=X
-	            personPhotoUrl = personPhotoUrl.substring(0,
-	                    personPhotoUrl.length() - 2)
-	                    + PROFILE_PIC_SIZE;
-	            
+            
 	            new LoadProfileImage(imgProfilePic).execute(personPhotoUrl);
 	 
 	        } else {

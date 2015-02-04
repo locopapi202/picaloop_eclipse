@@ -8,56 +8,15 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@drawable/loginsplash"
     tools:context="com.picaloopand.picaloop.GoogleLoginActivity" >
+
+       	<ProgressBar
+       	    android:id="@+id/progress"
+       	    android:layout_width="70dp"
+       	    android:layout_height="70dp"
+       	    android:layout_alignParentTop="true"
+       	    android:layout_centerHorizontal="true"
+       	    android:layout_marginTop="54dp" />
     
  </RelativeLayout> 
 
-<!--  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    tools:context="com.picaloopand.picaloop.GoogleLoginActivity" >
 
-    <LinearLayout
-        android:id="@+id/googlellProfile"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:orientation="horizontal"
-        android:weightSum="3"
-        android:visibility="gone">
-
- 
-        <ImageView
-            android:id="@+id/googleProfilePic"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:contentDescription="@string/googlepic"/>
- 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:orientation="vertical"
-            android:layout_weight="2" >
- 
-            <TextView
-                android:id="@+id/googleName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:textSize="20sp" />
- 
-            <TextView
-                android:id="@+id/googleEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:textSize="18sp" />
-        </LinearLayout>
-    </LinearLayout>
-
-    
-</LinearLayout> -->

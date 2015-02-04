@@ -16,7 +16,7 @@
         android:id="@+id/ImageButton"
          android:layout_width="90dp"
          android:layout_height="90dp"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/ic_local_restaurant_black_48dp"
+         android:scaleType="fitEnd"
+        android:src="@drawable/ic_launcher_profile"
         android:background="@drawable/icons" />
 </RelativeLayout>

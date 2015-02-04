@@ -78,13 +78,12 @@ public class EmailLoginActivity extends Activity implements
 			populateAutoComplete();
 	
 			mPasswordView = (EditText) findViewById(R.id.password);
-			Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
-			
+						
 			mLoginFormView = findViewById(R.id.login_form);
 			mProgressView = findViewById(R.id.login_progress);
 			
-			mProgressView.setVisibility(true ? View.VISIBLE : View.GONE);
-			mLoginFormView.setVisibility(true ? View.GONE : View.VISIBLE);
+			mProgressView.setVisibility(View.VISIBLE);
+			mLoginFormView.setVisibility(View.GONE);
 			
     		firstTime = false;
     		attemptLogin();
@@ -162,8 +161,14 @@ public class EmailLoginActivity extends Activity implements
 			View focusView = null;
 	
 			// Check for a valid password, if the user entered one.
-			if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
+			if (!isPasswordValid(password)) {
 				mPasswordView.setError(getString(R.string.error_invalid_password));
+				focusView = mPasswordView;
+				cancel = true;
+			}
+			// Check for a valid password, if the user entered one.
+			if (TextUtils.isEmpty(password)) {
+				mPasswordView.setError(getString(R.string.error_field_required));
 				focusView = mPasswordView;
 				cancel = true;
 			}
@@ -380,6 +385,9 @@ public class EmailLoginActivity extends Activity implements
 	            editProfile.putString("userEmail", mEmail);
 	            // editProfile.putString("userProfilePic", personPhotoUrl);
 	            editProfile.commit();
+	            
+	            UsersDBTable user = new UsersDBTable(mEmail, null, null, mPassword, mEmail, null, SIGN_IN_METHOD);
+	            user.save();
 
 			}
 			
@@ -398,7 +406,7 @@ public class EmailLoginActivity extends Activity implements
 					editProfile.commit();
 				}
 			    Toast.makeText(getApplicationContext(), "User is connected!", Toast.LENGTH_LONG).show();
-				Intent intent = new Intent(getApplicationContext(), CreateALoopActivity.class);
+				Intent intent = new Intent(getApplicationContext(), NewsFeedActivity.class);
 				startActivity(intent);
 				finish();
 			} else {

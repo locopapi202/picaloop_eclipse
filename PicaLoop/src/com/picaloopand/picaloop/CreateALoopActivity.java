@@ -384,7 +384,7 @@ public class CreateALoopActivity extends ActionBarActivity {
 	 public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 	    MenuInflater inflater = getMenuInflater();
-	    inflater.inflate(R.menu.actionbar_menu, menu);
+	    inflater.inflate(R.menu.create_loop_actionbar_menu, menu);
 	    return super.onCreateOptionsMenu(menu);
 
 	} 
@@ -403,10 +403,10 @@ public class CreateALoopActivity extends ActionBarActivity {
 	        	//finish();
 	        	return true;
 	        case R.id.action_profile:
-	            openProfile();
+	            MyApplication.openProfile(app);
 	            return true;
 	        case R.id.action_settings:
-	            openSettings();
+	        	MyApplication.openSettings(app);
 	            return true;
 	        default:
 	            return super.onOptionsItemSelected(item);
@@ -414,21 +414,5 @@ public class CreateALoopActivity extends ActionBarActivity {
 
 	}
 
-	private void openSettings() {
-		// TODO Auto-generated method stub
-	//	Toast.makeText(getApplicationContext(), "Settings Clicked!", Toast.LENGTH_LONG).show();
 
-   
-	}
-
-	private void openProfile() {
-		// TODO Auto-generated method stub
-		Toast.makeText(getApplicationContext(), "Profile Clicked!", Toast.LENGTH_LONG).show();
-	}
-
-	/*private void signOut() {
-		// TODO Auto-generated method stub
-		//Toast.makeText(getApplicationContext(), "signOut Clicked!", Toast.LENGTH_LONG).show();
-		
-	}  */
 }

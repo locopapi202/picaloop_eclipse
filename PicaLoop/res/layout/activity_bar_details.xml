@@ -7,7 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.picaloopand.picaloop.LoopDetailsActivity" >
+    tools:context="com.picaloopand.picaloop.BarDetailsActivity" >
+
 
    <fragment
         android:id="@+id/fragment1"
@@ -15,36 +16,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="0dp"
         android:layout_centerHorizontal="true" />
-
-<ScrollView
-       android:id="@+id/bardetailsscroll"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:layout_alignLeft="@+id/fragment1"
-       android:layout_alignParentLeft="true"
-       android:layout_marginTop="3dp"
-       android:layout_below="@+id/fragment1" >
-
-       <fragment
-           android:id="@+id/fragment2"
-           android:name="com.picaloopand.picaloop.LoadMediaFragment"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_marginTop="1dp" />
-   </ScrollView>
 
    <fragment
        android:id="@+id/fragment3"
        android:name="com.picaloopand.picaloop.CommentFragment"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:layout_below="@+id/bardetailsscroll"
-       android:layout_marginTop="3dp"
-       android:layout_centerHorizontal="true" />
-   
-         <Button
+       android:layout_alignLeft="@+id/fragment2"
+       android:layout_alignParentBottom="true"
+       android:layout_marginBottom="20dp"
+       android:layout_marginTop="5dp" />
+
+        
+
+   <fragment
+       android:id="@+id/fragment2"
+       android:name="com.picaloopand.picaloop.LoadMediaFragmentGrid"
+       android:layout_width="wrap_content"
+       android:layout_height="300dp"
+       android:layout_alignLeft="@+id/fragment1"
+       android:layout_below="@+id/fragment1"
+       android:layout_marginTop="10dp" />
+  <Button
        android:id="@+id/spotSubmit"
        android:layout_width="45dp"
        android:layout_height="45dp"

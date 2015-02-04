@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.widget.Toast;
 
+import com.activeandroid.ActiveAndroid;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 public class MyApplication extends android.app.Application {
@@ -18,10 +19,43 @@ public class MyApplication extends android.app.Application {
     public MyApplication() {
     	instance = this;
     }
+    
+    @Override
+    public void onCreate() {
+        // TODO Auto-generated method stub
+        super.onCreate();
+        
+        //Notice this initialization code here
+        ActiveAndroid.initialize(this);
+    }
 
     public static Context getContext() {
     	return instance;
     }
+    
+    public static void openProfile(MyApplication app){
+    	
+        Intent userProfileIntent = new Intent(app.getApplicationContext(), UserProfileActivity.class);
+        userProfileIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    	app.getApplicationContext().startActivity(userProfileIntent);
+    	//Toast.makeText(app.getApplicationContext(), "open profile Clicked!", Toast.LENGTH_LONG).show();
+    }
+    
+    public static void openSettings(MyApplication app){
+    	
+        Intent settingsIntent = new Intent(app.getApplicationContext(), SettingsActivity.class);
+        settingsIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    	app.getApplicationContext().startActivity(settingsIntent);
+        Toast.makeText(app.getApplicationContext(), "open settings Clicked!", Toast.LENGTH_LONG).show();
+    }
+    
+    public static void createALoop(MyApplication app){
+    	
+        Intent createALoopIntent = new Intent(app.getApplicationContext(), CreateALoopActivity.class);
+        createALoopIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        app.getApplicationContext().startActivity(createALoopIntent);
+    }
+    
     
     public static void signOut(MyApplication app, SharedPreferences userProfile){
     	String userSignInMethod;
