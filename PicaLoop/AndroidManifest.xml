@@ -87,7 +87,6 @@
         <activity
             android:name=".DrinksDetailsActivity"
             android:label="@string/title_bar"
-            android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan|stateHidden" >
         </activity>
         <activity
@@ -150,11 +149,7 @@
             android:label="@string/title_activity_email_login"
             android:windowSoftInputMode="adjustResize|stateVisible" >
         </activity>
-        <activity
-            android:name=".NewsFeedActivity"
-            android:label="@string/title_activity_news_feed" >
-        </activity>
-                <activity
+           <activity
             android:name=".LoopFeedActivity"
             android:label="@string/title_activity_loop_feed" >
         </activity>
