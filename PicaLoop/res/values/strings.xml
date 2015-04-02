@@ -53,7 +53,6 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="create_a_loop">Create A Loop</string>
     <string name="_90dp">90dp</string>
-    <color name="white">#FFFFFF</color>
     <string name="title_activity_loop_library">Loop Library</string>
     <string name="spots">Spots</string>
     <string name="loops">Loops</string>
