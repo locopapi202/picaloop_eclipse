@@ -2,12 +2,17 @@ package com.picaloopand.picaloop;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 public class BarDetailsActivity extends ActionBarActivity {
 	
@@ -15,6 +20,8 @@ public class BarDetailsActivity extends ActionBarActivity {
     FragmentTransaction fragmentTransaction;
     
     SharedPreferences userProfile;
+    
+    public Button loopSubmit ;
     
 	protected MyApplication app;
 
@@ -27,6 +34,7 @@ public class BarDetailsActivity extends ActionBarActivity {
         app = (MyApplication)getApplication();
 		
 		setContentView(R.layout.activity_bar_details);
+		 loopSubmit = (Button) findViewById(R.id.submitLoop);
 		
 	       // enabling action bar app icon and behaving it as toggle button
 	       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -34,7 +42,20 @@ public class BarDetailsActivity extends ActionBarActivity {
 		
 //	displayDetailFragments();
 		
-		  
+	       loopSubmit.setOnClickListener(new OnClickListener() {
+	           @Override
+	           public void onClick(View view) {
+	         	  submitLoop();
+	           }
+	           });
+	   
+
+	}
+	
+	private void submitLoop() {
+		
+		Intent intent = new Intent(this, LoopDetailsViewActivity.class);
+		startActivity(intent);
 	}
 
 	public void displayDetailFragments(){

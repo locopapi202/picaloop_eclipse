@@ -19,16 +19,6 @@
        android:layout_centerHorizontal="true" />
 
    <fragment
-       android:id="@+id/fragment3"
-       android:name="com.picaloopand.picaloop.CommentFragment"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_alignLeft="@+id/fragment2"
-       android:layout_alignParentBottom="true"
-       android:layout_marginBottom="20dp"
-       android:layout_marginTop="5dp" />
-
-   <fragment
        android:id="@+id/fragment2"
        android:name="com.picaloopand.picaloop.LoadMediaFragmentGrid"
        android:layout_width="wrap_content"
@@ -37,4 +27,22 @@
        android:layout_below="@+id/fragment1"
        android:layout_marginTop="10dp" />
 
+   <fragment
+       android:id="@+id/fragment3"
+       android:name="com.picaloopand.picaloop.CommentFragment"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignLeft="@+id/fragment2"
+       android:layout_below="@+id/fragment2"
+       android:layout_marginTop="15dp" />
+
+   <Button
+       android:id="@+id/submitLoop"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignLeft="@+id/fragment3"
+       android:layout_alignParentBottom="true"
+       android:layout_alignRight="@+id/fragment3"
+       android:text="@string/submit_loop" >
+   </Button>
 </RelativeLayout>

@@ -43,7 +43,7 @@
     <string name="loop_submit">Go</string>
     <string name="title_activity_loop_view">Loop View</string>
     <string name="title_activity_loop_detail_view">LoopDetailViewActivity</string>
-    <string name="title_activity_loop_details_view">LoopDetailsViewActivity</string>
+    <string name="title_activity_loop_details_view">Review your loop !</string>
     <string name="title_activity_image_adapter">ImageAdapter</string>
     <string name="title_activity_loop_feed">Loop Feed</string>
     <string name="feed">Loop Feed</string>
@@ -57,16 +57,17 @@
     <string name="spots">Spots</string>
     <string name="loops">Loops</string>
     <string name="liked">Liked</string>
+    <string name="submit_loop">Submit Loop</string>
     <string name="loopers_following">Following</string>
     <string name="loopers_followed">Followers</string>
     <string name="drawer_open">Slider Menu Opened</string>
     <string name="drawer_close">Slider Menu Closed</string>
-    
-        <!-- Nav Drawer Menu Items -->
+
+    <!-- Nav Drawer Menu Items -->
     <string-array name="nav_drawer_items">
-        <item >Loop Feed</item>
-        <item >Loop Library</item>
-        <item >Explore</item>
+        <item>Loop Feed</item>
+        <item>Loop Library</item>
+        <item>Explore</item>
     </string-array>
     <!-- Nav Drawer List Item Icons -->
     <!-- Keep them in order as the titles are in -->
@@ -75,8 +76,9 @@
         <item>@drawable/ic_photo_library_black_48dp</item>
         <item>@drawable/ic_map_black_48dp</item>
     </array>
-    
+
     <!-- Content Description -->
     <string name="desc_list_item_icon">Item Icon</string>
-  
+    <string name="title_activity_loop_grid">LoopGridActivity</string>
+
 </resources>

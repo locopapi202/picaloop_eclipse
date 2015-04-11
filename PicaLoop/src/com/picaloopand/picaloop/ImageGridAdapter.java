@@ -83,9 +83,9 @@ public class ImageGridAdapter extends BaseAdapter {
         ImageView imageView;
         if (convertView == null) {  // if it's not recycled, initialize some attributes
             imageView = new ImageView(mContext);
-            imageView.setLayoutParams(new GridView.LayoutParams(190, 210));
+            imageView.setLayoutParams(new GridView.LayoutParams(325, 325));
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            imageView.setPadding(0, 0, 0, 0);
+            imageView.setPadding(1, 1, 1, 1);
 
             
             //Scale down image to avoid running out of memory

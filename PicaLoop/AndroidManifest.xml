@@ -64,23 +64,23 @@
             android:name=".UserProfileFragment"
             android:label="@string/title_activity_user_profile" >
             <meta-data
-		        android:name="android.support.PARENT_ACTIVITY"
-		        android:value="com.picaloopand.picaloop.LoopFeedActivity" />
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.picaloopand.picaloop.LoopFeedActivity" />
         </activity>
         <activity
             android:name=".CreateALoopActivity"
             android:label="@string/title_activity_create_aloop" >
             <meta-data
-		        android:name="android.support.PARENT_ACTIVITY"
-		        android:value="com.picaloopand.picaloop.LoopLibraryActivity" />            
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.picaloopand.picaloop.LoopLibraryActivity" />
         </activity>
         <activity
             android:name=".BarDetailsActivity"
             android:label="@string/title_activity_bar_details"
             android:windowSoftInputMode="adjustPan|stateHidden" >
             <meta-data
-		        android:name="android.support.PARENT_ACTIVITY"
-		        android:value="com.picaloopand.picaloop.CreateALoopActivity" />            
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.picaloopand.picaloop.CreateALoopActivity" />
         </activity>
         <activity
             android:name=".EmailLoginActivity"
@@ -99,8 +99,8 @@
             android:name=".UserProfileActivity"
             android:label="@string/title_activity_user_profile" >
             <meta-data
-		        android:name="android.support.PARENT_ACTIVITY"
-		        android:value="com.picaloopand.picaloop.LoopFeedActivity" />            
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.picaloopand.picaloop.LoopFeedActivity" />
         </activity>
         <activity android:name=".FullImageActivity" >
         </activity>
@@ -108,8 +108,16 @@
             android:name=".LoopLibraryActivity"
             android:label="@string/title_activity_loop_library" >
             <meta-data
-		        android:name="android.support.PARENT_ACTIVITY"
-		        android:value="com.picaloopand.picaloop.LoopFeedActivity" />             
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.picaloopand.picaloop.LoopFeedActivity" />
+        </activity>
+        <activity
+            android:name=".LoopDetailsViewActivity"
+            android:label="@string/title_activity_loop_details_view" >
+        </activity>
+        <activity
+            android:name=".LoopGridActivity"
+            android:label="@string/title_activity_loop_grid" >
         </activity>
     </application>
 
