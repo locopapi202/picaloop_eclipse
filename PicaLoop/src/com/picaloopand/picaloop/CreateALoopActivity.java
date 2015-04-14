@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.plus.Plus;
@@ -123,6 +124,7 @@ public class CreateALoopActivity extends ActionBarActivity {
         editSpotRanks.putInt("library", 0);
         editSpotRanks.putInt("nature", 0);
         editSpotRanks.putInt("painting", 0);
+        editSpotRanks.putInt("populated", 1);
         editSpotRanks.commit();
         
         
@@ -286,8 +288,10 @@ public class CreateALoopActivity extends ActionBarActivity {
 	}
 	
 	private void submitSpots() {
-		//Toast.makeText(getApplicationContext(), "Google Sign in Clicked!", Toast.LENGTH_LONG).show();
-		Intent intent = new Intent(this, BarDetailsActivity.class);
+	 //Toast.makeText(getApplicationContext(),String.valueOf(counter), Toast.LENGTH_LONG).show();
+        editSpotRanks.putInt("counter", counter);
+        editSpotRanks.commit();
+		Intent intent = new Intent(this, PopulateDetailsActivity.class);
 		startActivity(intent);
 	}
 
