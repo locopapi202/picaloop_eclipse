@@ -1,5 +1,7 @@
 package com.picaloopand.picaloop;
 
+import java.util.List;
+
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -9,6 +11,7 @@ import android.view.MenuItem;
 import android.widget.GridView;
 
 public class LoopDetailsViewActivity extends ActionBarActivity {
+	SharedPreferences spotRanks;
 	/*
 	private Integer[] spots = {
 			R.drawable.bar_wine,
@@ -20,22 +23,24 @@ public class LoopDetailsViewActivity extends ActionBarActivity {
 			};
 	*/
 
-	private Integer[] spots = {
+    private Integer[] spots = {
 			R.drawable.bar_wine,
             R.drawable.restuarant,
             R.drawable.movie,
             R.drawable.hotel
 			};
-	
+
 	private Integer[] icons = {
 			R.drawable.ic_local_bar_black_48dp,
             R.drawable.ic_local_restaurant_black_48dp,
             R.drawable.ic_local_movies_black_48dp,
             R.drawable.ic_local_hotel_black_48dp
 			};
-    private String[] spotnames = {
+
+	private String[] spotnames = {
     		"Bahama breeze","Minado","UA King of Prussia","Radisson"
     };
+
 	LoopGridActivity loopGrid;
 	
 	
@@ -45,10 +50,12 @@ public class LoopDetailsViewActivity extends ActionBarActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		
 		setContentView(R.layout.activity_loop_details_view);
 		app = (MyApplication)getApplication();
-		
-		
+		spotRanks = getSharedPreferences("spotRanks", MODE_PRIVATE);
+
 		  GridView gridview = (GridView) findViewById(R.id.gridview2);
 		  loopGrid = new LoopGridActivity(this,spots,spotnames,icons);
 		  gridview.setAdapter(loopGrid);

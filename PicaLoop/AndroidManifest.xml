@@ -75,7 +75,7 @@
                 android:value="com.picaloopand.picaloop.LoopLibraryActivity" />
         </activity>
         <activity
-            android:name=".BarDetailsActivity"
+            android:name=".PopulateDetailsActivity"
             android:label="@string/title_activity_bar_details"
             android:windowSoftInputMode="adjustPan|stateHidden" >
             <meta-data

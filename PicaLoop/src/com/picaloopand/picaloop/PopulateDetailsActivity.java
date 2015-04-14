@@ -4,6 +4,7 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -13,21 +14,52 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
-public class BarDetailsActivity extends ActionBarActivity {
+public class PopulateDetailsActivity extends ActionBarActivity {
 	
 	FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
     
     SharedPreferences userProfile;
+    SharedPreferences spotRanks;
+    public static Editor editSpotRanks;
+    
+    private String[] spots = {
+            "drinks",
+            "food",
+            "movie",
+            "bike",
+            "grocery",
+            "water",
+            "hotel",
+            "airport",
+            "photo",
+            "library",
+            "nature",
+            "painting"
+        };
     
     public Button loopSubmit ;
+    protected MyApplication app;
     
-	protected MyApplication app;
+    String category;
+   
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+     spotRanks = getSharedPreferences("spotRanks", MODE_PRIVATE);
+	 
+   
+      for (int i=0;i<spots.length;i++){
+    	  if (spotRanks.getInt(spots[i],0) == spotRanks.getInt("populated",0) ){
+          	      category = spots[i]; 
+    	  	}
+         }
+    
+	    setTitle(category.toUpperCase());
+		//setTitle(R.string.title_library);
 		
 		userProfile = getSharedPreferences("userProfile", MODE_PRIVATE);
 	       // Get the application instance
@@ -53,9 +85,20 @@ public class BarDetailsActivity extends ActionBarActivity {
 	}
 	
 	private void submitLoop() {
+		if (spotRanks.getInt("populated",0) == spotRanks.getInt("counter",0)-1){
+			Intent intent = new Intent(this, LoopDetailsViewActivity.class);
+			//Toast.makeText(getApplicationContext(),String.valueOf(spotRanks.getInt("populated",0)), Toast.LENGTH_LONG).show();
+			startActivity(intent);
+		} else {
+			Intent intent = new Intent(this, PopulateDetailsActivity.class);
+			editSpotRanks = spotRanks.edit();
+			editSpotRanks.putInt("populated", spotRanks.getInt("populated",0)+1);
+	        editSpotRanks.commit();
+	        //Toast.makeText(getApplicationContext(),String.valueOf(spotRanks.getInt("populated",0)), Toast.LENGTH_LONG).show();
+	        startActivity(intent);
+		}
 		
-		Intent intent = new Intent(this, LoopDetailsViewActivity.class);
-		startActivity(intent);
+		
 	}
 
 	public void displayDetailFragments(){
