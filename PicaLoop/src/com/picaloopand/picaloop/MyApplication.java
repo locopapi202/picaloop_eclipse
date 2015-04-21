@@ -8,6 +8,9 @@ import android.widget.Toast;
 
 import com.activeandroid.ActiveAndroid;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.parse.Parse;
+import com.parse.ParseACL;
+import com.parse.ParseUser;
 
 public class MyApplication extends android.app.Application {
 
@@ -15,6 +18,9 @@ public class MyApplication extends android.app.Application {
 	private static final String GOOGLESIGNIN = "google";
 	private static final String FACEBOOKSIGNIN = "facebook";
 	private static final String PCLSIGNIN = "pcl";
+	
+	public static final String YOUR_APPLICATION_ID = "X1st94Z1U9ftnyGsMln0cDxRvXzoJOJ7XFmxaUC7";
+	public static final String YOUR_CLIENT_KEY = "Qy8MSDJhnJP7e27gpReol92HvkFqKMLxfX4mYzgG";
 
     public MyApplication() {
     	instance = this;
@@ -27,6 +33,15 @@ public class MyApplication extends android.app.Application {
         
         //Notice this initialization code here
         ActiveAndroid.initialize(this);
+        
+     // Add your initialization code here
+      Parse.initialize(this, YOUR_APPLICATION_ID, YOUR_CLIENT_KEY);
+      ParseUser.enableAutomaticUser();
+      ParseACL defaultACL = new ParseACL();
+       // If you would like all objects to be private by default, remove this line.
+      defaultACL.setPublicReadAccess(true);
+      ParseACL.setDefaultACL(defaultACL, true);
+      
     }
 
     public static Context getContext() {
@@ -68,11 +83,14 @@ public class MyApplication extends android.app.Application {
 	    welcomeIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             	
         userSignInMethod = userProfile.getString("userSignIn", null);
-		
+        //ParseUser.logOut();
+        //Toast.makeText(app.getApplicationContext(), "signOut Clicked! pcl", Toast.LENGTH_LONG).show();
+        //app.getApplicationContext().startActivity(welcomeIntent);
         if(userSignInMethod != null){
 			editProfile = userProfile.edit();
 	        editProfile.putString("userSignIn", null);
 	        editProfile.commit();
+			
 			if(userSignInMethod.contains(GOOGLESIGNIN)){
 				//MyApplication.signOutFromGplus(app, mGoogleApiClient);
 				//app.getApplicationContext().startActivity(new Intent(app.getApplicationContext(), WelcomeActivity.class));
@@ -84,9 +102,11 @@ public class MyApplication extends android.app.Application {
 				app.getApplicationContext().startActivity(welcomeIntent);
 			}
 			if(userSignInMethod.contains(PCLSIGNIN)){
-			//	Toast.makeText(app.getApplicationContext(), "signOut Clicked! pcl", Toast.LENGTH_LONG).show();
+				ParseUser.logOut();
+			 	Toast.makeText(app.getApplicationContext(), "signOut Clicked! pcl??", Toast.LENGTH_LONG).show();
 				//app.getApplicationContext().startActivity(new Intent(app.getApplicationContext(), WelcomeActivity.class));
 				app.getApplicationContext().startActivity(welcomeIntent);
+							
 			}
          }
     	

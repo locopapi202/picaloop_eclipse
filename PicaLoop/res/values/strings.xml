@@ -13,6 +13,7 @@
     <string name="profilepic">profilepic</string>
     <string name="title_activity_google_login">GoogleLoginActivity</string>
     <string name="title_activity_facebook_login">FacebookLoginActivity</string>
+    <string name="title_activity_email_registeration">EmailRegisterActivity</string>
     <string name="facebook_app_id">396946067128069</string>
     <string name="fb_user_in">Facebook session is Inactive</string>
     <string name="fb_user_ac">Facebook session is Active</string>

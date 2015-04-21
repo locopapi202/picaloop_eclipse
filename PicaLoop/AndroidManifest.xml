@@ -115,6 +115,10 @@
             android:name=".LoopDetailsViewActivity"
             android:label="@string/title_activity_loop_details_view" >
         </activity>
+         <activity
+            android:name=".RegisterFragment"
+            android:label="@string/title_activity_email_registeration" >
+        </activity>
         <activity
             android:name=".LoopGridActivity"
             android:label="@string/title_activity_loop_grid" >
