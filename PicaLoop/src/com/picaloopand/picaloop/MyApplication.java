@@ -103,7 +103,7 @@ public class MyApplication extends android.app.Application {
 			}
 			if(userSignInMethod.contains(PCLSIGNIN)){
 				ParseUser.logOut();
-			 	Toast.makeText(app.getApplicationContext(), "signOut Clicked! pcl??", Toast.LENGTH_LONG).show();
+			 	Toast.makeText(app.getApplicationContext(), "signOut Clicked! pcl", Toast.LENGTH_LONG).show();
 				//app.getApplicationContext().startActivity(new Intent(app.getApplicationContext(), WelcomeActivity.class));
 				app.getApplicationContext().startActivity(welcomeIntent);
 							

@@ -205,6 +205,10 @@ public class RegisterFragment extends FragmentActivity {
 	 */
 	public void attemptRegisteration() {
 			
+		    userProfile = this.getSharedPreferences("userProfile", MODE_PRIVATE);
+		    userSignIn = userProfile.getString("userSignIn", null);
+			editProfile = userProfile.edit();
+		    
 			mLoginFormView = findViewById(R.id.login_form);
 			mProgressView = findViewById(R.id.login_progress);
 			
@@ -314,7 +318,6 @@ public class RegisterFragment extends FragmentActivity {
 					{
 						user.put("userPicture", file);
 					}
-					
 					
 			        user.signUpInBackground(new SignUpCallback() {
 						public void done(ParseException e) {

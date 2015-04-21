@@ -1,17 +1,29 @@
 
 package com.picaloopand.picaloop;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
  
+
+
+
+
+
+
+
 
 
 
@@ -98,6 +110,7 @@ public class EmailLoginActivity extends Activity {
 		mEmailSignInButton.setOnClickListener(new OnClickListener() {
  
 			public void onClick(View arg0) {
+				
 				// Retrieve the text entered from the EditText
 				userPasswordtxt = userPassword.getText().toString();
 				userNametxt = userName.getText().toString();
@@ -105,8 +118,32 @@ public class EmailLoginActivity extends Activity {
 				mLoginFormView = findViewById(R.id.login_form);
 				mProgressView = findViewById(R.id.login_progress);
 				
-				mProgressView.setVisibility(View.VISIBLE);
-				mLoginFormView.setVisibility(View.GONE);
+				// Reset errors.
+				userName.setError(null);
+				userPassword.setError(null);
+				
+				boolean cancel = false;
+				View focusView = null;
+				
+				// Check if the password field is empty and validate the password
+				if (TextUtils.isEmpty(userPasswordtxt)) {
+					userPassword.setError(getString(R.string.error_field_required));
+					focusView = userPassword;
+					cancel = true;
+				
+		        } 
+				if (TextUtils.isEmpty(userNametxt)) {
+					userName.setError(getString(R.string.error_field_required));
+					focusView = userName;
+					cancel = true;
+				}
+				if (cancel) {
+					// There was an error; don't attempt login and focus the first
+					// form field with an error.
+					focusView.requestFocus();
+				} 
+				else {
+				showProgress(true);
 				// Send data to Parse.com for verification
 				ParseUser.logInInBackground(userNametxt, userPasswordtxt,
 						new LogInCallback() {
@@ -133,11 +170,14 @@ public class EmailLoginActivity extends Activity {
 											getApplicationContext(),
 										"The user or password is not correct!",
 											Toast.LENGTH_LONG).show();
+									showProgress(false);
 								}
 							}
 						});
+				}
 			}
 		});
+		
 		// Sign up Button Click Listener
 		mRegisterButton.setOnClickListener(new OnClickListener() {
  
@@ -147,10 +187,48 @@ public class EmailLoginActivity extends Activity {
 					finish();
 				}
 			});
-	
-			//mLoginFormView = findViewById(R.id.login_form);
-			//mProgressView = findViewById(R.id.login_progress);
  
+	}
+	
+	/*
+	 * Shows the progress UI and hides the login form.
+	 */
+	@TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
+	public void showProgress(final boolean show) {
+		// On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
+		// for very easy animations. If available, use these APIs to fade-in
+		// the progress spinner.
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
+			int shortAnimTime = getResources().getInteger(
+					android.R.integer.config_shortAnimTime);
+
+			mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
+			mLoginFormView.animate().setDuration(shortAnimTime)
+					.alpha(show ? 0 : 1)
+					.setListener(new AnimatorListenerAdapter() {
+						@Override
+						public void onAnimationEnd(Animator animation) {
+							mLoginFormView.setVisibility(show ? View.GONE
+									: View.VISIBLE);
+						}
+					});
+
+			mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+			mProgressView.animate().setDuration(shortAnimTime)
+					.alpha(show ? 1 : 0)
+					.setListener(new AnimatorListenerAdapter() {
+						@Override
+						public void onAnimationEnd(Animator animation) {
+							mProgressView.setVisibility(show ? View.VISIBLE
+									: View.GONE);
+						}
+					});
+		} else {
+			// The ViewPropertyAnimator APIs are not available, so simply show
+			// and hide the relevant UI components.
+			mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+			mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
+		}
 	}
 }
 
