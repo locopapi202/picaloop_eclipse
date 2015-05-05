@@ -77,7 +77,7 @@ public class RegisterFragment extends FragmentActivity {
     /**
      * Defining all layout items
      **/
-        getWindow().setBackgroundDrawableResource(R.drawable.loginsplash);
+      //  getWindow().setBackgroundDrawableResource(R.drawable.loginsplash);
        
        
 /**

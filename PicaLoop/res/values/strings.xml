@@ -81,5 +81,6 @@
     <!-- Content Description -->
     <string name="desc_list_item_icon">Item Icon</string>
     <string name="title_activity_loop_grid">LoopGridActivity</string>
+    <string name="title_activity_create_aspot">CreateASpotActivity</string>
 
 </resources>

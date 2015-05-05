@@ -75,6 +75,13 @@ public class MyApplication extends android.app.Application {
         app.getApplicationContext().startActivity(createALoopIntent);
     }
     
+    public static void createASpot(MyApplication app){
+    	
+        Intent createASpotIntent = new Intent(app.getApplicationContext(), CreateASpotActivity.class);
+        createASpotIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        app.getApplicationContext().startActivity(createASpotIntent);
+    }
+    
     
     public static void signOut(MyApplication app, SharedPreferences userProfile){
     	String userSignInMethod;

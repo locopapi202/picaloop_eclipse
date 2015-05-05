@@ -157,7 +157,7 @@ public class LoopLibraryActivity extends ActionBarActivity implements
 			
 			switch (position+1) {
 			case 1:
-				return PlaceholderFragment.newInstance(position + 1);
+				return SpotCollectionFragmentGrid.newInstance(position + 1);
 			case 2:
 				return LoopCollectionFragmentGrid.newInstance(position + 1);
 			case 3:

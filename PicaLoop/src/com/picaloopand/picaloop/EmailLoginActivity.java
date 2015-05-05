@@ -97,7 +97,7 @@ public class EmailLoginActivity extends Activity {
 	private void LoginSignup() {
 		// TODO Auto-generated method stub
 		setContentView(R.layout.activity_email_login);
-		getWindow().setBackgroundDrawableResource(R.drawable.loginsplash);
+		//getWindow().setBackgroundDrawableResource(R.drawable.loginsplash);
 		// Locate EditTexts in main.xml
 		userName = (EditText) findViewById(R.id.username);
 		userPassword = (EditText) findViewById(R.id.password);
