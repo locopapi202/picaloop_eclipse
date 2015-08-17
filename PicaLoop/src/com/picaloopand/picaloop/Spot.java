@@ -68,6 +68,10 @@ public class Spot extends ParseObject {
 	public void setSpotComment(String SpotComment) {
 		put("SpotComment", SpotComment);
 	}
+	
+	  public static ParseQuery<Spot> getQuery() {
+		    return ParseQuery.getQuery(Spot.class);
+		  }
 }
 
 

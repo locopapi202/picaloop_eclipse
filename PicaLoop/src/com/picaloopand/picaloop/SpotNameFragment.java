@@ -31,6 +31,7 @@ import android.widget.Toast;
 
 
 
+
 public class SpotNameFragment extends Fragment implements OnItemClickListener {
 	private static final String LOG_TAG = "PicaLoop";
 
@@ -46,6 +47,7 @@ public class SpotNameFragment extends Fragment implements OnItemClickListener {
 	String selectedSpot = null;
 	
 	SpotNameInterface spotName;
+	
 
 	public SpotNameFragment() {
 	}
@@ -216,6 +218,4 @@ public class SpotNameFragment extends Fragment implements OnItemClickListener {
 	        return filter;
 	    }
 	}
-	
-	
 }
