@@ -65,7 +65,7 @@ public class PopulateDetailsActivity extends ActionBarActivity {
 	       // Get the application instance
         app = (MyApplication)getApplication();
 		
-		setContentView(R.layout.activity_bar_details);
+		setContentView(R.layout.activity_populate_details);
 		 loopSubmit = (Button) findViewById(R.id.submitLoop);
 		
 	       // enabling action bar app icon and behaving it as toggle button
@@ -86,7 +86,7 @@ public class PopulateDetailsActivity extends ActionBarActivity {
 	
 	private void submitLoop() {
 		if (spotRanks.getInt("populated",0) == spotRanks.getInt("counter",0)-1){
-			Intent intent = new Intent(this, LoopDetailsViewActivity.class);
+			Intent intent = new Intent(this, LoopMapViewActivity.class);
 			//Toast.makeText(getApplicationContext(),String.valueOf(spotRanks.getInt("populated",0)), Toast.LENGTH_LONG).show();
 			startActivity(intent);
 		} else {

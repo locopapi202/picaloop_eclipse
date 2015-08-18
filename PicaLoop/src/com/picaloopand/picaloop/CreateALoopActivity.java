@@ -23,8 +23,10 @@ public class CreateALoopActivity extends ActionBarActivity {
 		
 	SharedPreferences selectedSpots;
 	SharedPreferences spotRanks;
+	SharedPreferences displayOptions;
     public static Editor editSelectedSpots;
     public static Editor editSpotRanks;
+    public static Editor editDisplayOptions;
     public static final String TRUE = "TRUE";
     public static final String FALSE = "FALSE";
     
@@ -97,6 +99,11 @@ public class CreateALoopActivity extends ActionBarActivity {
         spotRanks = getSharedPreferences("spotRanks", MODE_PRIVATE);
         editSpotRanks = spotRanks.edit();
 		
+        displayOptions = getSharedPreferences("displayOptions", MODE_PRIVATE);
+        editDisplayOptions = displayOptions.edit();
+        editDisplayOptions.putInt("display", 1);
+        editDisplayOptions.commit();
+        
         editSelectedSpots.clear();
         editSpotRanks.clear();
         editSelectedSpots.putString("drinks", FALSE);
@@ -288,7 +295,7 @@ public class CreateALoopActivity extends ActionBarActivity {
 	}
 	
 	private void submitSpots() {
-	 //Toast.makeText(getApplicationContext(),String.valueOf(counter), Toast.LENGTH_LONG).show();
+	 Toast.makeText(getApplicationContext(),String.valueOf(counter), Toast.LENGTH_LONG).show();
         editSpotRanks.putInt("counter", counter);
         editSpotRanks.commit();
 		Intent intent = new Intent(this, PopulateDetailsActivity.class);
