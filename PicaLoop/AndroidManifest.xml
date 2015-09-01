@@ -40,7 +40,8 @@
         <meta-data
             android:name="AA_DB_VERSION"
             android:value="1" />
-
+         <meta-data
+            android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyB5RX0sJ3hjaocCLJM6YoMsB471DanTYbg"/>
         <activity
             android:name=".WelcomeActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -125,6 +126,10 @@
             android:label="@string/title_activity_loop_details_view" >
         </activity>
         <activity
+            android:name=".RegisterFragment"
+            android:label="@string/title_activity_email_registeration" >
+        </activity>
+        <activity
             android:name=".LoopGridActivity"
             android:label="@string/title_activity_loop_grid" >
         </activity>
@@ -132,10 +137,13 @@
             android:name=".LoopMapViewActivity"
             android:label="@string/title_activity_loop_map_view" >
         </activity>
+                <activity
+            android:name=".CreateASpotActivity"
+            android:label="@string/title_activity_create_aspot" >
+        </activity>
                 <meta-data
     android:name="com.google.android.maps.v2.API_KEY"
     android:value="AIzaSyB5RX0sJ3hjaocCLJM6YoMsB471DanTYbg"/>
     </application>
 
 </manifest>
-

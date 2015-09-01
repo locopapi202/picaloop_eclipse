@@ -13,6 +13,7 @@
     <string name="profilepic">profilepic</string>
     <string name="title_activity_google_login">GoogleLoginActivity</string>
     <string name="title_activity_facebook_login">FacebookLoginActivity</string>
+    <string name="title_activity_email_registeration">EmailRegisterActivity</string>
     <string name="facebook_app_id">396946067128069</string>
     <string name="fb_user_in">Facebook session is Inactive</string>
     <string name="fb_user_ac">Facebook session is Active</string>
@@ -81,5 +82,6 @@
     <string name="desc_list_item_icon">Item Icon</string>
     <string name="title_activity_loop_grid">LoopGridActivity</string>
     <string name="title_activity_loop_map_view">LoopMapViewActivity</string>
+    <string name="title_activity_create_aspot">CreateASpotActivity</string>
 
 </resources>
